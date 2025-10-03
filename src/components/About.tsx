@@ -36,7 +36,7 @@ const About = () => {
                   <span className="text-primary font-semibold">Full Stack</span>
                 </div>
                 <div className="px-4 py-2 bg-card border border-primary/20 rounded">
-                  <span className="text-primary font-semibold">Cloud Ready</span>
+                  <span className="text-primary font-semibold">AI Ready</span>
                 </div>
               </div>
             </div>
