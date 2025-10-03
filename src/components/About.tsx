@@ -23,9 +23,10 @@ const About = () => {
             
             <div className="space-y-6">
               <p className="text-lg text-foreground/70 leading-relaxed">
-                My journey in software development spans mobile applications, full-stack web development, 
-                and scalable backend services. I'm continuously expanding my expertise in Docker, ORMs, 
-                and cloud platforms to deliver cutting-edge solutions.
+                  I’m a Full Stack App Developer passionate about building modern, scalable, and AI-powered applications. 
+                  My expertise spans mobile app development with Flutter, full-stack App development, and robust backend systems using Node.js, Express, and databases (SQL & NoSQL).
+                  I continuously expand my skills in Docker, ORMs, cloud platforms (Firebase, AWS, GCP), and AI-powered solutions to deliver innovative, data-driven, and cutting-edge digital experiences. 
+                  I thrive on transforming ideas into intelligent applications that solve real-world challenges efficiently.
               </p>
               <div className="flex flex-wrap gap-3">
                 <div className="px-4 py-2 bg-card border border-primary/20 rounded">
