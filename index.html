@@ -1,24 +1,329 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Ashutosh Giri - Full Stack App Developer</title>
-    <meta name="description" content="Full Stack App Developer specializing in Flutter and Node.js. Building modern apps and scalable backends." />
-    <meta name="author" content="Ashutosh Giri" />
 
-    <meta property="og:title" content="Ashutosh Giri - Full Stack App Developer" />
-    <meta property="og:description" content="Full Stack App Developer specializing in Flutter and Node.js. Building modern apps and scalable backends." />
-    <meta property="og:type" content="website" />
-    <meta property="og:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ashutosh Giri | Full Stack Developer</title>
+    <meta name="description"
+        content="Portfolio of Ashutosh Giri, a Full Stack App Developer specializing in Flutter, Node.js, and AI-powered solutions.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
 
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@lovable_dev" />
-    <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
-  </head>
+<body>
+    <div id="canvas-container"></div>
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="#" class="logo">AG.</a>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <button id="theme-toggle" aria-label="Toggle Dark Mode">
+                <i class="fas fa-moon"></i>
+            </button>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
 
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+    <header class="hero">
+        <div class="container hero-container">
+            <div class="hero-content fade-in-up">
+                <span class="greeting">Hello, I'm</span>
+                <h1 class="name">Ashutosh Giri</h1>
+                <h2 class="role">I am a <span class="typing-text"></span></h2>
+                <p class="bio">Building modern, scalable, and AI-powered applications. Passionate about Flutter,
+                    Node.js, and creating intuitive digital experiences.</p>
+                <div class="hero-buttons">
+                    <a href="#projects" class="btn btn-primary">View Work</a>
+                    <a href="#contact" class="btn btn-outline">Contact Me</a>
+                </div>
+                <div class="social-links">
+                    <a href="https://github.com/raaj2493" target="_blank" aria-label="GitHub"><i
+                            class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/rajgiri2493/" target="_blank" aria-label="LinkedIn"><i
+                            class="fab fa-linkedin"></i></a>
+                    <a href="mailto:raj.ash2493@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                    <a href="tel:+918512088003" aria-label="Phone"><i class="fas fa-phone"></i></a>
+                </div>
+            </div>
+            <div class="hero-image fade-in-up delay-200">
+                <div class="blob-container" data-tilt>
+                    <div class="blob blob-1"></div>
+                    <div class="blob blob-2"></div>
+                    <img src="profile.jpg" alt="Ashutosh Giri" class="profile-img">
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section id="about" class="section about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content glass-card">
+                <div class="about-text scroll-reveal">
+                    <p>Aspiring Software Developer with hands-on experience in cross-platform mobile application
+                        development using Flutter and Firebase. Proficient in integrating RESTful APIs, enhancing
+                        application performance, and following clean MVC-based architecture.</p>
+                    <p>Strong foundation in computer science, version control, and Agile development practices.
+                        Passionate
+                        about delivering scalable, user-focused applications and continuously improving technical
+                        expertise.</p>
+                    <div class="quote-box">
+                        <blockquote>"Code. Debug. Repeat. 🚀"</blockquote>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="section services">
+        <div class="container">
+            <h2 class="section-title">What I Do</h2>
+            <div class="services-grid">
+                <div class="service-card glass-card scroll-reveal" data-tilt>
+                    <div class="service-icon"><i class="fas fa-mobile-alt"></i></div>
+                    <h3>Mobile Development</h3>
+                    <p>Building high-performance, cross-platform mobile applications using Flutter. Smooth animations
+                        and native-like performance.</p>
+                </div>
+                <div class="service-card glass-card scroll-reveal delay-100" data-tilt>
+                    <div class="service-icon"><i class="fas fa-code"></i></div>
+                    <h3>Full Stack Web</h3>
+                    <p>Creating responsive and dynamic web applications with modern frameworks like React, Next.js, and
+                        Node.js.</p>
+                </div>
+                <div class="service-card glass-card scroll-reveal delay-200" data-tilt>
+                    <div class="service-icon"><i class="fas fa-server"></i></div>
+                    <h3>Backend Systems</h3>
+                    <p>Designing robust and scalable backend architectures with Node.js, Express, and SQL/NoSQL
+                        databases.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience" class="section experience">
+        <div class="container">
+            <h2 class="section-title">Experience</h2>
+            <div class="experience-list">
+                <div class="experience-card glass-card scroll-reveal" data-tilt>
+                    <div class="exp-header">
+                        <div class="exp-title-group">
+                            <h3>Flutter Developer Intern</h3>
+                            <h4 class="exp-company">Team Infits | Remote</h4>
+                        </div>
+                        <span class="exp-date">October 2025 – Present</span>
+                    </div>
+                    <ul class="exp-details">
+                        <li>Built and maintained 20+ production-ready Flutter screens using reusable widgets and clean
+                            MVC architecture.</li>
+                        <li>Implemented 5+ REST API integrations and Firebase services for authentication and real-time
+                            data synchronization.</li>
+                        <li>Enhanced UI responsiveness and application performance, reducing UI-related issues by
+                            approximately 25%.</li>
+                        <li>Collaborated with designers and backend developers to deliver features within Agile sprint
+                            timelines.</li>
+                        <li>Contributed 20+ Git commits across feature enhancements, bug fixes, and UI improvements.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="education" class="section education">
+        <div class="container">
+            <h2 class="section-title">Education</h2>
+            <div class="education-card glass-card scroll-reveal" data-tilt>
+                <div class="edu-header">
+                    <div class="edu-title-group">
+                        <h3>Bachelor of Technology in Computer Science</h3>
+                        <h4 class="edu-school">Raj Kumar Goel Institute of Technology</h4>
+                        <p class="edu-location">Ghaziabad, Uttar Pradesh</p>
+                    </div>
+                    <span class="edu-date">June 2025 – June 2029</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="section skills">
+        <div class="container">
+            <h2 class="section-title">Tech Stack</h2>
+            <div class="skills-grid">
+                <div class="skill-category glass-card scroll-reveal">
+                    <h3>Programming Languages</h3>
+                    <div class="skill-tags">
+                        <span>Dart</span>
+                        <span>JavaScript</span>
+                        <span>Java</span>
+                        <span>Python</span>
+                        <span>SQL</span>
+                        <span>HTML5</span>
+                        <span>CSS3</span>
+                    </div>
+                </div>
+                <div class="skill-category glass-card scroll-reveal delay-100">
+                    <h3>Frameworks & Technologies</h3>
+                    <div class="skill-tags">
+                        <span>Flutter</span>
+                        <span>Node.js</span>
+                        <span>Firebase</span>
+                        <span>React.js</span>
+                        <span>Express.js</span>
+                        <span>REST APIs</span>
+                        <span>MVC Architecture</span>
+                    </div>
+                </div>
+                <div class="skill-category glass-card scroll-reveal delay-200">
+                    <h3>Databases & Tools</h3>
+                    <div class="skill-tags">
+                        <span>Firestore</span>
+                        <span>Realtime Database</span>
+                        <span>PostgreSQL</span>
+                        <span>Git</span>
+                        <span>GitHub</span>
+                        <span>Android Studio</span>
+                        <span>VS Code</span>
+                        <span>Postman</span>
+                        <span>Docker</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="section projects">
+        <div class="container">
+            <h2 class="section-title">Featured Projects</h2>
+            <div class="projects-grid">
+                <!-- Project 1 -->
+                <article class="project-card glass-card scroll-reveal" data-tilt>
+                    <div class="project-content">
+                        <div class="project-header">
+                            <i class="fas fa-folder-open project-icon"></i>
+                            <div class="project-links">
+                                <a href="https://github.com/raaj2493" target="_blank" aria-label="GitHub Repo"><i
+                                        class="fab fa-github"></i></a>
+                            </div>
+                        </div>
+                        <h3 class="project-title">Habit Tracking App</h3>
+                        <p class="project-description">Flutter app with tile-based grid charts, customizable dashboards,
+                            and habit progress tracking.</p>
+                        <div class="project-tech">
+                            <span>Flutter</span>
+                            <span>Firebase</span>
+                            <span>Charts</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Project 2 -->
+                <article class="project-card glass-card scroll-reveal delay-100" data-tilt>
+                    <div class="project-content">
+                        <div class="project-header">
+                            <i class="fas fa-folder-open project-icon"></i>
+                            <div class="project-links">
+                                <a href="https://github.com/raaj2493" target="_blank" aria-label="GitHub Repo"><i
+                                        class="fab fa-github"></i></a>
+                            </div>
+                        </div>
+                        <h3 class="project-title">Real-time Chat App</h3>
+                        <p class="project-description">Flutter + Firebase app with chat, user profiles, and push
+                            notifications.</p>
+                        <div class="project-tech">
+                            <span>Flutter</span>
+                            <span>Firebase</span>
+                            <span>Cloud Messaging</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Project 3 -->
+                <article class="project-card glass-card scroll-reveal delay-200" data-tilt>
+                    <div class="project-content">
+                        <div class="project-header">
+                            <i class="fas fa-folder-open project-icon"></i>
+                            <div class="project-links">
+                                <a href="https://github.com/raaj2493" target="_blank" aria-label="GitHub Repo"><i
+                                        class="fab fa-github"></i></a>
+                            </div>
+                        </div>
+                        <h3 class="project-title">Task Manager App</h3>
+                        <p class="project-description">Group-based task management with CRUD functionality for team
+                            collaboration.</p>
+                        <div class="project-tech">
+                            <span>Flutter</span>
+                            <span>Firebase</span>
+                            <span>Firestore</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Project 4 -->
+                <article class="project-card glass-card scroll-reveal delay-300" data-tilt>
+                    <div class="project-content">
+                        <div class="project-header">
+                            <i class="fas fa-folder-open project-icon"></i>
+                            <div class="project-links">
+                                <a href="https://github.com/raaj2493/URL-Shortner" target="_blank"
+                                    aria-label="GitHub Repo"><i class="fab fa-github"></i></a>
+                            </div>
+                        </div>
+                        <h3 class="project-title">URL Shortener API</h3>
+                        <p class="project-description">A fast and secure URL shortener built with Node.js, Express,
+                            Drizzle ORM, and PostgreSQL.</p>
+                        <div class="project-tech">
+                            <span>Node.js</span>
+                            <span>PostgreSQL</span>
+                            <span>Drizzle ORM</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+            <div class="more-projects">
+                <a href="https://github.com/raaj2493" target="_blank" class="btn btn-outline">View All Projects</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section contact">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="glass-card contact-card">
+                <p class="contact-text">Ready to build something amazing together? Let's discuss your next project.</p>
+                <a href="mailto:raj.ash2493@gmail.com" class="btn btn-primary big-btn">Say Hello</a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>Designed & Built by Ashutosh Giri</p>
+            <div class="footer-socials">
+                <a href="https://github.com/raaj2493" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/rajgiri2493/" target="_blank"><i class="fab fa-linkedin"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="three-bg.js"></script>
+    <script src="script.js"></script>
+</body>
+
 </html>
