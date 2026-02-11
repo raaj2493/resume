@@ -2,328 +2,217 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ashutosh Giri | Full Stack Developer</title>
-    <meta name="description"
-        content="Portfolio of Ashutosh Giri, a Full Stack App Developer specializing in Flutter, Node.js, and AI-powered solutions.">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ashutosh Giri | Backend Engineer & Flutter Developer</title>
+  <meta name="description"
+    content="Elite portfolio of Ashutosh Giri — Backend Engineer, Flutter Developer, and Full Stack Builder crafting scalable APIs, high-performance systems, and production-grade applications." />
+  <meta name="keywords" content="Ashutosh Giri, backend engineer, flutter developer, full stack developer, portfolio" />
+  <meta name="author" content="Ashutosh Giri" />
+  <meta property="og:title" content="Ashutosh Giri | Backend Engineer • Flutter Developer • Full Stack Builder" />
+  <meta property="og:description"
+    content="I build high-performance backend systems, scalable APIs, and production-grade applications." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="profile.jpg" />
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:title" content="Ashutosh Giri | Premium Portfolio" />
+  <meta property="twitter:description"
+    content="Elite full-stack developer portfolio with live GitHub stats, heatmap, and featured projects." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkR4qj8K+Pj1F8ER7L6hY9c2R8wX3Yf6mV6A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
-    <div id="canvas-container"></div>
-    <nav class="navbar">
-        <div class="container nav-container">
-            <a href="#" class="logo">AG.</a>
-            <ul class="nav-links">
-                <li><a href="#about">About</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-            <button id="theme-toggle" aria-label="Toggle Dark Mode">
-                <i class="fas fa-moon"></i>
-            </button>
-            <div class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </div>
+  <div class="noise" aria-hidden="true"></div>
+  <header class="site-header" id="top">
+    <nav class="navbar" aria-label="Main navigation">
+      <a href="#top" class="logo">AG<span>.</span></a>
+      <button class="menu-btn" id="menu-btn" aria-expanded="false" aria-controls="nav-links" aria-label="Toggle menu">
+        <span></span><span></span>
+      </button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#github">GitHub</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#journey">Journey</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
     </nav>
 
-    <header class="hero">
-        <div class="container hero-container">
-            <div class="hero-content fade-in-up">
-                <span class="greeting">Hello, I'm</span>
-                <h1 class="name">Ashutosh Giri</h1>
-                <h2 class="role">I am a <span class="typing-text"></span></h2>
-                <p class="bio">Building modern, scalable, and AI-powered applications. Passionate about Flutter,
-                    Node.js, and creating intuitive digital experiences.</p>
-                <div class="hero-buttons">
-                    <a href="#projects" class="btn btn-primary">View Work</a>
-                    <a href="#contact" class="btn btn-outline">Contact Me</a>
-                </div>
-                <div class="social-links">
-                    <a href="https://github.com/raaj2493" target="_blank" aria-label="GitHub"><i
-                            class="fab fa-github"></i></a>
-                    <a href="https://www.linkedin.com/in/rajgiri2493/" target="_blank" aria-label="LinkedIn"><i
-                            class="fab fa-linkedin"></i></a>
-                    <a href="mailto:raj.ash2493@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
-                    <a href="tel:+918512088003" aria-label="Phone"><i class="fas fa-phone"></i></a>
-                </div>
-            </div>
-            <div class="hero-image fade-in-up delay-200">
-                <div class="blob-container" data-tilt>
-                    <div class="blob blob-1"></div>
-                    <div class="blob blob-2"></div>
-                    <img src="profile.jpg" alt="Ashutosh Giri" class="profile-img">
-                </div>
-            </div>
+    <section class="hero section" id="hero" aria-label="Hero">
+      <div class="gradient-orb orb-a" aria-hidden="true"></div>
+      <div class="gradient-orb orb-b" aria-hidden="true"></div>
+      <div class="hero-inner reveal">
+        <p class="eyebrow">Available for premium engineering roles</p>
+        <h1>Ashutosh Giri</h1>
+        <h2>Backend Engineer • Flutter Developer • Full Stack Builder</h2>
+        <p class="lead">I build high-performance backend systems, scalable APIs, and production-grade applications.</p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="#projects">View Projects</a>
+          <a class="btn btn-ghost" href="./Ashutosh_Giri_Resume.txt" download>Download Resume</a>
+          <a class="btn btn-ghost" href="https://github.com/raaj2493" target="_blank" rel="noopener noreferrer">GitHub</a>
         </div>
-    </header>
+      </div>
+    </section>
+  </header>
 
-    <section id="about" class="section about">
-        <div class="container">
-            <h2 class="section-title">About Me</h2>
-            <div class="about-content glass-card">
-                <div class="about-text scroll-reveal">
-                    <p>Aspiring Software Developer with hands-on experience in cross-platform mobile application
-                        development using Flutter and Firebase. Proficient in integrating RESTful APIs, enhancing
-                        application performance, and following clean MVC-based architecture.</p>
-                    <p>Strong foundation in computer science, version control, and Agile development practices.
-                        Passionate
-                        about delivering scalable, user-focused applications and continuously improving technical
-                        expertise.</p>
-                    <div class="quote-box">
-                        <blockquote>"Code. Debug. Repeat. 🚀"</blockquote>
-                    </div>
-                </div>
-            </div>
+  <main>
+    <section class="section" id="about">
+      <div class="section-header reveal">
+        <p class="section-kicker">01</p>
+        <h3>About</h3>
+      </div>
+      <article class="glass-panel reveal">
+        <p>I am a backend-first engineer with strong Flutter and full-stack product execution experience. My focus is
+          designing APIs and systems that remain fast, stable, and maintainable under production traffic.</p>
+        <div class="about-grid">
+          <div>
+            <h4>What I bring</h4>
+            <ul>
+              <li>Scalable API architecture and service orchestration</li>
+              <li>Cross-platform app delivery with Flutter</li>
+              <li>Database performance optimization and observability</li>
+            </ul>
+          </div>
+          <div>
+            <h4>Developer philosophy</h4>
+            <ul>
+              <li>Simple solutions over clever complexity</li>
+              <li>Reliability and performance are product features</li>
+              <li>Ship with quality, measure, then iterate quickly</li>
+            </ul>
+          </div>
         </div>
+        <div class="badge-row" aria-label="Core strengths">
+          <span>System Design</span><span>Clean Architecture</span><span>Production Debugging</span><span>CI/CD</span>
+        </div>
+      </article>
     </section>
 
-    <section id="services" class="section services">
-        <div class="container">
-            <h2 class="section-title">What I Do</h2>
-            <div class="services-grid">
-                <div class="service-card glass-card scroll-reveal" data-tilt>
-                    <div class="service-icon"><i class="fas fa-mobile-alt"></i></div>
-                    <h3>Mobile Development</h3>
-                    <p>Building high-performance, cross-platform mobile applications using Flutter. Smooth animations
-                        and native-like performance.</p>
-                </div>
-                <div class="service-card glass-card scroll-reveal delay-100" data-tilt>
-                    <div class="service-icon"><i class="fas fa-code"></i></div>
-                    <h3>Full Stack Web</h3>
-                    <p>Creating responsive and dynamic web applications with modern frameworks like React, Next.js, and
-                        Node.js.</p>
-                </div>
-                <div class="service-card glass-card scroll-reveal delay-200" data-tilt>
-                    <div class="service-icon"><i class="fas fa-server"></i></div>
-                    <h3>Backend Systems</h3>
-                    <p>Designing robust and scalable backend architectures with Node.js, Express, and SQL/NoSQL
-                        databases.</p>
-                </div>
-            </div>
-        </div>
+    <section class="section" id="skills">
+      <div class="section-header reveal">
+        <p class="section-kicker">02</p>
+        <h3>Skills & Stack</h3>
+      </div>
+      <div class="skills-grid">
+        <article class="skill-card glass-panel reveal">
+          <h4>Backend</h4>
+          <ul class="chip-list">
+            <li>Go</li><li>Node.js</li><li>Gin</li><li>PostgreSQL</li><li>MySQL</li><li>Redis</li><li>REST APIs</li><li>Microservices</li>
+          </ul>
+          <div class="progress-set">
+            <label>API Design <span>92%</span></label><div class="bar"><i style="--value:92%"></i></div>
+            <label>Database Engineering <span>88%</span></label><div class="bar"><i style="--value:88%"></i></div>
+          </div>
+        </article>
+        <article class="skill-card glass-panel reveal">
+          <h4>Frontend</h4>
+          <ul class="chip-list">
+            <li>Flutter</li><li>React</li><li>Next.js</li><li>Tailwind CSS</li>
+          </ul>
+          <div class="progress-set">
+            <label>UI Engineering <span>86%</span></label><div class="bar"><i style="--value:86%"></i></div>
+            <label>Responsive UX <span>90%</span></label><div class="bar"><i style="--value:90%"></i></div>
+          </div>
+        </article>
+        <article class="skill-card glass-panel reveal">
+          <h4>Tools</h4>
+          <ul class="chip-list">
+            <li>Docker</li><li>GitHub Actions</li><li>Firebase</li><li>Linux</li>
+          </ul>
+          <div class="progress-set">
+            <label>Automation <span>84%</span></label><div class="bar"><i style="--value:84%"></i></div>
+            <label>Deployment Pipelines <span>82%</span></label><div class="bar"><i style="--value:82%"></i></div>
+          </div>
+        </article>
+      </div>
     </section>
 
-    <section id="experience" class="section experience">
-        <div class="container">
-            <h2 class="section-title">Experience</h2>
-            <div class="experience-list">
-                <div class="experience-card glass-card scroll-reveal" data-tilt>
-                    <div class="exp-header">
-                        <div class="exp-title-group">
-                            <h3>Flutter Developer Intern</h3>
-                            <h4 class="exp-company">Team Infits | Remote</h4>
-                        </div>
-                        <span class="exp-date">October 2025 – Present</span>
-                    </div>
-                    <ul class="exp-details">
-                        <li>Built and maintained 20+ production-ready Flutter screens using reusable widgets and clean
-                            MVC architecture.</li>
-                        <li>Implemented 5+ REST API integrations and Firebase services for authentication and real-time
-                            data synchronization.</li>
-                        <li>Enhanced UI responsiveness and application performance, reducing UI-related issues by
-                            approximately 25%.</li>
-                        <li>Collaborated with designers and backend developers to deliver features within Agile sprint
-                            timelines.</li>
-                        <li>Contributed 20+ Git commits across feature enhancements, bug fixes, and UI improvements.
-                        </li>
-                    </ul>
-                </div>
-            </div>
+    <section class="section" id="github">
+      <div class="section-header reveal">
+        <p class="section-kicker">03</p>
+        <h3>Live GitHub Insights</h3>
+      </div>
+      <div class="stats-grid" id="github-stats" aria-live="polite"></div>
+
+      <div class="heatmap-wrap glass-panel reveal">
+        <div class="heatmap-header">
+          <h4>Contribution Heatmap</h4>
+          <label for="year-filter" class="sr-only">Select year</label>
+          <select id="year-filter"></select>
         </div>
+        <div id="heatmap" class="heatmap" role="img" aria-label="GitHub contribution calendar"></div>
+        <p class="muted" id="heatmap-status">Loading contribution data...</p>
+      </div>
     </section>
 
-    <section id="education" class="section education">
-        <div class="container">
-            <h2 class="section-title">Education</h2>
-            <div class="education-card glass-card scroll-reveal" data-tilt>
-                <div class="edu-header">
-                    <div class="edu-title-group">
-                        <h3>Bachelor of Technology in Computer Science</h3>
-                        <h4 class="edu-school">Raj Kumar Goel Institute of Technology</h4>
-                        <p class="edu-location">Ghaziabad, Uttar Pradesh</p>
-                    </div>
-                    <span class="edu-date">June 2025 – June 2029</span>
-                </div>
-            </div>
-        </div>
+    <section class="section" id="projects">
+      <div class="section-header reveal">
+        <p class="section-kicker">04</p>
+        <h3>Featured Projects</h3>
+      </div>
+      <div class="project-controls reveal">
+        <button class="pill active" data-sort="stars">Sort by Stars</button>
+        <button class="pill" data-sort="recent">Sort by Recency</button>
+      </div>
+      <div class="project-grid" id="project-grid" aria-live="polite"></div>
     </section>
 
-    <section id="skills" class="section skills">
-        <div class="container">
-            <h2 class="section-title">Tech Stack</h2>
-            <div class="skills-grid">
-                <div class="skill-category glass-card scroll-reveal">
-                    <h3>Programming Languages</h3>
-                    <div class="skill-tags">
-                        <span>Dart</span>
-                        <span>JavaScript</span>
-                        <span>Java</span>
-                        <span>Python</span>
-                        <span>SQL</span>
-                        <span>HTML5</span>
-                        <span>CSS3</span>
-                    </div>
-                </div>
-                <div class="skill-category glass-card scroll-reveal delay-100">
-                    <h3>Frameworks & Technologies</h3>
-                    <div class="skill-tags">
-                        <span>Flutter</span>
-                        <span>Node.js</span>
-                        <span>Firebase</span>
-                        <span>React.js</span>
-                        <span>Express.js</span>
-                        <span>REST APIs</span>
-                        <span>MVC Architecture</span>
-                    </div>
-                </div>
-                <div class="skill-category glass-card scroll-reveal delay-200">
-                    <h3>Databases & Tools</h3>
-                    <div class="skill-tags">
-                        <span>Firestore</span>
-                        <span>Realtime Database</span>
-                        <span>PostgreSQL</span>
-                        <span>Git</span>
-                        <span>GitHub</span>
-                        <span>Android Studio</span>
-                        <span>VS Code</span>
-                        <span>Postman</span>
-                        <span>Docker</span>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <section class="section" id="journey">
+      <div class="section-header reveal">
+        <p class="section-kicker">05</p>
+        <h3>Experience & Journey</h3>
+      </div>
+      <div class="timeline">
+        <article class="timeline-item glass-panel reveal">
+          <h4>Foundation in Computer Science</h4>
+          <p>Built strong fundamentals in data structures, algorithms, and software design patterns.</p>
+        </article>
+        <article class="timeline-item glass-panel reveal">
+          <h4>Backend Mastery</h4>
+          <p>Focused on robust APIs, database performance tuning, and service reliability engineering.</p>
+        </article>
+        <article class="timeline-item glass-panel reveal">
+          <h4>Flutter Product Execution</h4>
+          <p>Delivered cross-platform experiences with polished UI, smooth interaction, and maintainable architecture.</p>
+        </article>
+        <article class="timeline-item glass-panel reveal">
+          <h4>Full-Stack Product Building</h4>
+          <p>Connected UX, backend systems, and deployment workflows into scalable production-grade apps.</p>
+        </article>
+      </div>
     </section>
 
-    <section id="projects" class="section projects">
-        <div class="container">
-            <h2 class="section-title">Featured Projects</h2>
-            <div class="projects-grid">
-                <!-- Project 1 -->
-                <article class="project-card glass-card scroll-reveal" data-tilt>
-                    <div class="project-content">
-                        <div class="project-header">
-                            <i class="fas fa-folder-open project-icon"></i>
-                            <div class="project-links">
-                                <a href="https://github.com/raaj2493" target="_blank" aria-label="GitHub Repo"><i
-                                        class="fab fa-github"></i></a>
-                            </div>
-                        </div>
-                        <h3 class="project-title">Habit Tracking App</h3>
-                        <p class="project-description">Flutter app with tile-based grid charts, customizable dashboards,
-                            and habit progress tracking.</p>
-                        <div class="project-tech">
-                            <span>Flutter</span>
-                            <span>Firebase</span>
-                            <span>Charts</span>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Project 2 -->
-                <article class="project-card glass-card scroll-reveal delay-100" data-tilt>
-                    <div class="project-content">
-                        <div class="project-header">
-                            <i class="fas fa-folder-open project-icon"></i>
-                            <div class="project-links">
-                                <a href="https://github.com/raaj2493" target="_blank" aria-label="GitHub Repo"><i
-                                        class="fab fa-github"></i></a>
-                            </div>
-                        </div>
-                        <h3 class="project-title">Real-time Chat App</h3>
-                        <p class="project-description">Flutter + Firebase app with chat, user profiles, and push
-                            notifications.</p>
-                        <div class="project-tech">
-                            <span>Flutter</span>
-                            <span>Firebase</span>
-                            <span>Cloud Messaging</span>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Project 3 -->
-                <article class="project-card glass-card scroll-reveal delay-200" data-tilt>
-                    <div class="project-content">
-                        <div class="project-header">
-                            <i class="fas fa-folder-open project-icon"></i>
-                            <div class="project-links">
-                                <a href="https://github.com/raaj2493" target="_blank" aria-label="GitHub Repo"><i
-                                        class="fab fa-github"></i></a>
-                            </div>
-                        </div>
-                        <h3 class="project-title">Task Manager App</h3>
-                        <p class="project-description">Group-based task management with CRUD functionality for team
-                            collaboration.</p>
-                        <div class="project-tech">
-                            <span>Flutter</span>
-                            <span>Firebase</span>
-                            <span>Firestore</span>
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Project 4 -->
-                <article class="project-card glass-card scroll-reveal delay-300" data-tilt>
-                    <div class="project-content">
-                        <div class="project-header">
-                            <i class="fas fa-folder-open project-icon"></i>
-                            <div class="project-links">
-                                <a href="https://github.com/raaj2493/URL-Shortner" target="_blank"
-                                    aria-label="GitHub Repo"><i class="fab fa-github"></i></a>
-                            </div>
-                        </div>
-                        <h3 class="project-title">URL Shortener API</h3>
-                        <p class="project-description">A fast and secure URL shortener built with Node.js, Express,
-                            Drizzle ORM, and PostgreSQL.</p>
-                        <div class="project-tech">
-                            <span>Node.js</span>
-                            <span>PostgreSQL</span>
-                            <span>Drizzle ORM</span>
-                        </div>
-                    </div>
-                </article>
-            </div>
-            <div class="more-projects">
-                <a href="https://github.com/raaj2493" target="_blank" class="btn btn-outline">View All Projects</a>
-            </div>
-        </div>
+    <section class="section" id="contact">
+      <div class="section-header reveal">
+        <p class="section-kicker">06</p>
+        <h3>Contact</h3>
+      </div>
+      <article class="contact-card glass-panel reveal">
+        <a href="mailto:raj.ash2493@gmail.com"><i class="fa-regular fa-envelope"></i> raj.ash2493@gmail.com</a>
+        <a href="https://github.com/raaj2493" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github"></i> github.com/raaj2493</a>
+        <a href="https://www.linkedin.com/in/rajgiri2493/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-linkedin"></i> linkedin.com/in/rajgiri2493</a>
+        <a href="./Ashutosh_Giri_Resume.txt" download><i class="fa-solid fa-file-arrow-down"></i> Download Resume</a>
+      </article>
     </section>
+  </main>
 
-    <section id="contact" class="section contact">
-        <div class="container">
-            <h2 class="section-title">Get In Touch</h2>
-            <div class="glass-card contact-card">
-                <p class="contact-text">Ready to build something amazing together? Let's discuss your next project.</p>
-                <a href="mailto:raj.ash2493@gmail.com" class="btn btn-primary big-btn">Say Hello</a>
-            </div>
-        </div>
-    </section>
+  <footer class="footer">
+    <p>Ashutosh Giri</p>
+    <div class="footer-links">
+      <a href="https://github.com/raaj2493" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+      <a href="https://www.linkedin.com/in/rajgiri2493/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+    </div>
+    <small>© <span id="year"></span> All rights reserved.</small>
+  </footer>
 
-    <footer class="footer">
-        <div class="container">
-            <p>Designed & Built by Ashutosh Giri</p>
-            <div class="footer-socials">
-                <a href="https://github.com/raaj2493" target="_blank"><i class="fab fa-github"></i></a>
-                <a href="https://www.linkedin.com/in/rajgiri2493/" target="_blank"><i class="fab fa-linkedin"></i></a>
-            </div>
-        </div>
-    </footer>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <script src="three-bg.js"></script>
-    <script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 
 </html>

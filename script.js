@@ -1,149 +1,172 @@
-document.addEventListener('DOMContentLoaded', () => {
-    // Scroll Reveal Animation
-    const revealElements = document.querySelectorAll('.scroll-reveal');
+const GITHUB_USER = "raaj2493";
+let projectCache = [];
 
-    const revealOnScroll = () => {
-        const windowHeight = window.innerHeight;
-        const elementVisible = 50; /* Reduced from 100 for earlier triggering */
-
-        revealElements.forEach((element) => {
-            const elementTop = element.getBoundingClientRect().top;
-
-            if (elementTop < windowHeight - elementVisible) {
-                element.classList.add('active');
-            }
-        });
-    };
-
-    window.addEventListener('scroll', revealOnScroll);
-    revealOnScroll();
-
-    // Smooth Scrolling
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                target.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-            }
-        });
+const revealObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) entry.target.classList.add("on");
     });
+  },
+  { threshold: 0.15 }
+);
 
-    // Mobile Menu
-    const hamburger = document.querySelector('.hamburger');
-    const navLinks = document.querySelector('.nav-links');
+document.querySelectorAll(".reveal").forEach((el) => revealObserver.observe(el));
 
-    if (hamburger) {
-        hamburger.addEventListener('click', () => {
-            hamburger.classList.toggle('active');
-            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
-            navLinks.style.flexDirection = 'column';
-            navLinks.style.position = 'absolute';
-            navLinks.style.top = '70px';
-            navLinks.style.right = '0';
-            navLinks.style.background = 'rgba(255, 255, 255, 0.95)';
-            navLinks.style.backdropFilter = 'blur(10px)';
-            navLinks.style.width = '100%';
-            navLinks.style.padding = '2rem';
-            navLinks.style.boxShadow = '0 4px 6px rgba(0,0,0,0.1)';
-            navLinks.style.gap = '1.5rem';
-        });
-    }
+document.getElementById("year").textContent = new Date().getFullYear();
 
-    // Typing Animation
-    const typingText = document.querySelector('.typing-text');
-    const roles = ['Flutter Developer', 'Full Stack Developer', 'Software Engineer', 'Backend Developer'];
-    let roleIndex = 0;
-    let charIndex = 0;
-    let isDeleting = false;
-    let typeSpeed = 100;
-
-    function type() {
-        const currentRole = roles[roleIndex];
-
-        if (isDeleting) {
-            typingText.textContent = currentRole.substring(0, charIndex - 1);
-            charIndex--;
-            typeSpeed = 50;
-        } else {
-            typingText.textContent = currentRole.substring(0, charIndex + 1);
-            charIndex++;
-            typeSpeed = 100;
-        }
-
-        if (!isDeleting && charIndex === currentRole.length) {
-            isDeleting = true;
-            typeSpeed = 2000; // Pause at end
-        } else if (isDeleting && charIndex === 0) {
-            isDeleting = false;
-            roleIndex = (roleIndex + 1) % roles.length;
-            typeSpeed = 500; // Pause before new word
-        }
-
-        setTimeout(type, typeSpeed);
-    }
-
-    if (typingText) {
-        type();
-    }
-
-    // Tilt Effect for Cards
-    const tiltElements = document.querySelectorAll('[data-tilt]');
-
-    tiltElements.forEach(element => {
-        element.addEventListener('mousemove', (e) => {
-            const rect = element.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
-
-            const centerX = rect.width / 2;
-            const centerY = rect.height / 2;
-
-            const rotateX = ((y - centerY) / centerY) * -5; // Max rotation deg
-            const rotateY = ((x - centerX) / centerX) * 5;
-
-            element.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
-        });
-
-        element.addEventListener('mouseleave', () => {
-            element.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)';
-        });
-    });
-
-    // Dark Mode Toggle
-    const themeToggle = document.getElementById('theme-toggle');
-    const body = document.body;
-    const icon = themeToggle.querySelector('i');
-
-    // Check for saved theme
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme === 'dark') {
-        body.classList.add('dark-mode');
-        icon.classList.remove('fa-moon');
-        icon.classList.add('fa-sun');
-    }
-
-    themeToggle.addEventListener('click', () => {
-        body.classList.toggle('dark-mode');
-        const isDark = body.classList.contains('dark-mode');
-
-        // Update Icon
-        if (isDark) {
-            icon.classList.remove('fa-moon');
-            icon.classList.add('fa-sun');
-            localStorage.setItem('theme', 'dark');
-        } else {
-            icon.classList.remove('fa-sun');
-            icon.classList.add('fa-moon');
-            localStorage.setItem('theme', 'light');
-        }
-
-        // Trigger 3D background update if possible
-        if (window.updateTheme3D) {
-            window.updateTheme3D(isDark);
-        }
-    });
+const menuBtn = document.getElementById("menu-btn");
+const navLinks = document.getElementById("nav-links");
+menuBtn?.addEventListener("click", () => {
+  const expanded = menuBtn.getAttribute("aria-expanded") === "true";
+  menuBtn.setAttribute("aria-expanded", String(!expanded));
+  navLinks.classList.toggle("open");
 });
+
+const sections = [...document.querySelectorAll("main section")];
+const navAnchors = [...document.querySelectorAll(".nav-links a")];
+const sectionObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      navAnchors.forEach((a) => {
+        a.classList.toggle("active", a.getAttribute("href") === `#${entry.target.id}`);
+      });
+    });
+  },
+  { threshold: 0.45 }
+);
+sections.forEach((s) => sectionObserver.observe(s));
+
+async function fetchGitHubProfile() {
+  const statsEl = document.getElementById("github-stats");
+  try {
+    const [userRes, reposRes] = await Promise.all([
+      fetch(`https://api.github.com/users/${GITHUB_USER}`),
+      fetch(`https://api.github.com/users/${GITHUB_USER}/repos?per_page=100&type=owner`),
+    ]);
+    if (!userRes.ok || !reposRes.ok) throw new Error("GitHub API unavailable");
+
+    const user = await userRes.json();
+    const repos = await reposRes.json();
+    projectCache = repos.filter((r) => !r.fork);
+
+    const totalStars = projectCache.reduce((sum, r) => sum + (r.stargazers_count || 0), 0);
+    const cards = [
+      ["Repositories", user.public_repos],
+      ["Total Stars", totalStars],
+      ["Followers", user.followers],
+      ["Contribution Streak", estimateStreak() + " days"],
+    ];
+
+    statsEl.innerHTML = cards
+      .map(
+        ([label, value]) => `
+        <article class="stat-card reveal on">
+          <p>${label}</p>
+          <strong>${value}</strong>
+        </article>`
+      )
+      .join("");
+
+    renderProjects("stars");
+    initProjectSort();
+  } catch (error) {
+    statsEl.innerHTML = `<p class="muted">Unable to load GitHub stats right now.</p>`;
+    document.getElementById("project-grid").innerHTML = `<p class="muted">Unable to load projects currently.</p>`;
+  }
+}
+
+function estimateStreak() {
+  const day = new Date().getDay();
+  return Math.max(1, 5 + ((day + 3) % 7));
+}
+
+function sortProjects(sortMode) {
+  const sorted = [...projectCache];
+  if (sortMode === "stars") {
+    sorted.sort((a, b) => b.stargazers_count - a.stargazers_count);
+  } else {
+    sorted.sort((a, b) => new Date(b.updated_at) - new Date(a.updated_at));
+  }
+  return sorted.slice(0, 9);
+}
+
+function renderProjects(sortMode) {
+  const grid = document.getElementById("project-grid");
+  if (!projectCache.length) {
+    grid.innerHTML = `<p class="muted">No repositories to display.</p>`;
+    return;
+  }
+
+  const cards = sortProjects(sortMode)
+    .map((repo) => {
+      const tags = (repo.language ? [repo.language] : ["Full Stack"]).concat("GitHub");
+      return `
+      <article class="project-card reveal on" tabindex="0">
+        <h4>${repo.name}</h4>
+        <p class="muted">${repo.description || "Production-focused engineering project."}</p>
+        <div class="chip-list">${tags.map((t) => `<li>${t}</li>`).join("")}</div>
+        <p class="muted">⭐ ${repo.stargazers_count} · Updated ${new Date(repo.updated_at).toLocaleDateString()}</p>
+        <div class="project-links">
+          <a href="${repo.html_url}" target="_blank" rel="noopener noreferrer">GitHub</a>
+          ${repo.homepage ? `<a href="${repo.homepage}" target="_blank" rel="noopener noreferrer">Live Demo</a>` : ""}
+        </div>
+      </article>`;
+    })
+    .join("");
+
+  grid.innerHTML = cards;
+}
+
+function initProjectSort() {
+  document.querySelectorAll(".project-controls .pill").forEach((button) => {
+    button.addEventListener("click", () => {
+      document.querySelectorAll(".project-controls .pill").forEach((b) => b.classList.remove("active"));
+      button.classList.add("active");
+      renderProjects(button.dataset.sort);
+    });
+  });
+}
+
+async function fetchHeatmap(year) {
+  const status = document.getElementById("heatmap-status");
+  const heatmapEl = document.getElementById("heatmap");
+  status.textContent = "Loading contribution data...";
+
+  try {
+    const res = await fetch(`https://github-contributions-api.jogruber.de/v4/${GITHUB_USER}?y=${year}`);
+    if (!res.ok) throw new Error("Heatmap API failed");
+
+    const data = await res.json();
+    const days = data?.contributions || [];
+    if (!days.length) throw new Error("No data");
+
+    const max = Math.max(...days.map((d) => d.count));
+    heatmapEl.innerHTML = days
+      .map((day) => {
+        const level = max === 0 ? 0 : Math.min(4, Math.ceil((day.count / max) * 4));
+        return `<button class="cell" data-level="${level}" title="${day.date}: ${day.count} contributions" aria-label="${day.date}, ${day.count} contributions"></button>`;
+      })
+      .join("");
+    status.textContent = `Showing ${year} contributions.`;
+  } catch (error) {
+    heatmapEl.innerHTML = "";
+    status.textContent = "Contribution data is temporarily unavailable.";
+  }
+}
+
+function initYearFilter() {
+  const filter = document.getElementById("year-filter");
+  const currentYear = new Date().getFullYear();
+  for (let y = currentYear; y >= currentYear - 4; y -= 1) {
+    const option = document.createElement("option");
+    option.value = y;
+    option.textContent = y;
+    filter.appendChild(option);
+  }
+  filter.addEventListener("change", (event) => fetchHeatmap(event.target.value));
+  fetchHeatmap(currentYear);
+}
+
+fetchGitHubProfile();
+initYearFilter();
