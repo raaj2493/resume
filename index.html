@@ -4,20 +4,20 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ashutosh Giri | Backend Engineer Notebook</title>
+  <title>Ashutosh Giri | Digital Developer Notebook</title>
   <meta name="description"
-    content="A calm, notebook-style portfolio of Ashutosh Giri — Backend Engineer, Go Developer, and Flutter Full Stack builder." />
+    content="A calm digital notebook portfolio of Ashutosh Giri — Backend Engineer, Go Developer, and Flutter Full Stack builder." />
   <meta name="author" content="Ashutosh Giri" />
-  <meta property="og:title" content="Ashutosh Giri | Developer Notebook" />
-  <meta property="og:description" content="Building scalable systems, one clean line at a time." />
+  <meta property="og:title" content="Ashutosh Giri | Digital Developer Notebook" />
+  <meta property="og:description" content="Building calm, scalable systems — one clean line at a time." />
   <meta property="og:type" content="website" />
   <meta property="twitter:card" content="summary_large_image" />
-  <meta property="twitter:title" content="Ashutosh Giri | Developer Notebook" />
-  <meta property="twitter:description" content="Calm notebook-style portfolio, projects, notes, and GitHub activity." />
+  <meta property="twitter:title" content="Ashutosh Giri | Digital Developer Notebook" />
+  <meta property="twitter:description" content="Peaceful developer workspace with projects, notes, and GitHub activity." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Fira+Code:wght@400;500&family=Patrick+Hand&display=swap"
     rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
     crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -25,9 +25,11 @@
 </head>
 
 <body>
+  <div class="paper-grid" aria-hidden="true"></div>
+
   <header class="topbar" id="top">
     <nav class="nav wrap" aria-label="Primary">
-      <a href="#top" class="logo">Ashutosh<span> / notes</span></a>
+      <a href="#top" class="logo">Ashutosh <span>Notebook</span></a>
       <button id="menu-btn" class="menu-btn" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-links">
         <span></span><span></span>
       </button>
@@ -44,33 +46,57 @@
 
   <main>
     <section class="hero wrap reveal" id="hero">
-      <p class="meta">Personal Developer Notebook</p>
+      <span class="float-icon icon-1">🚀</span>
+      <span class="float-icon icon-2">💻</span>
+      <span class="float-icon icon-3">🧠</span>
+      <span class="float-icon icon-4">⚙️</span>
+
+      <p class="meta">Digital Developer Notebook</p>
       <h1>Ashutosh Giri</h1>
       <h2>Backend Engineer | Go Developer | Flutter Full Stack</h2>
-      <p class="lead">Building scalable systems, one clean line at a time.</p>
-      <div class="actions">
-        <a href="#projects" class="btn btn-primary">Projects</a>
-        <a href="#notes" class="btn">Notes</a>
-        <a href="https://github.com/raaj2493" target="_blank" rel="noopener noreferrer" class="btn">GitHub</a>
+      <p class="lead">Building calm, scalable systems — one clean line at a time.</p>
+
+      <div class="badge-row">
+        <span>Go</span><span>Gin</span><span>PostgreSQL</span><span>MySQL</span><span>Flutter</span><span>Firebase</span><span>Docker</span>
       </div>
+
+      <article class="journey-card">
+        <h3>Developer Journey</h3>
+        <p>Backend depth + product-focused execution. Quietly shipping reliable systems and learning every day.</p>
+        <div class="journey-progress">
+          <label>Learning Progress <strong>84%</strong></label>
+          <div class="progress-line"><i></i></div>
+        </div>
+        <a class="btn btn-dark" href="https://github.com/raaj2493" target="_blank" rel="noopener noreferrer">Visit GitHub</a>
+      </article>
+
       <div class="divider"></div>
+    </section>
+
+    <section class="wrap stats-strip reveal" aria-label="Quick stats">
+      <article class="stat-chip"><p>Projects Built</p><strong>18+</strong></article>
+      <article class="stat-chip"><p>APIs Created</p><strong>35+</strong></article>
+      <article class="stat-chip"><p>GitHub Commits</p><strong>500+</strong></article>
+      <article class="stat-chip"><p>Learning Streak</p><strong>120 days</strong></article>
     </section>
 
     <section class="section wrap" id="about">
       <div class="section-head reveal">
-        <h3>About</h3>
+        <h3>About Me</h3>
+        <button class="btn btn-soft" id="about-toggle" aria-expanded="false" aria-controls="about-panel">Expand</button>
       </div>
-      <article class="card reveal">
+      <article class="card reveal" id="about-panel" hidden>
         <p>
-          I enjoy designing backend systems with strong fundamentals in Go, clean architecture, and practical system
-          design. I care deeply about readable code, reliable APIs, and products that remain maintainable as they grow.
+          I enjoy designing backend systems with Go, clean architecture, and practical system design. I optimize for
+          clarity, reliability, and developer experience.
         </p>
-        <ul class="highlights">
-          <li>Golang + Gin + GORM</li>
-          <li>PostgreSQL + MySQL</li>
-          <li>Firebase + Flutter</li>
-          <li>REST APIs + Auth + Realtime systems</li>
-        </ul>
+        <div class="sticky-grid">
+          <div class="sticky-note">Golang + Gin + GORM</div>
+          <div class="sticky-note">PostgreSQL + MySQL</div>
+          <div class="sticky-note">Firebase + Flutter</div>
+          <div class="sticky-note">REST APIs + Auth + Realtime</div>
+        </div>
+        <p class="quote">“Keep the system calm, the code clean, and the learning continuous.”</p>
       </article>
     </section>
 
@@ -78,27 +104,12 @@
       <div class="section-head reveal">
         <h3>Skills Notebook</h3>
       </div>
-      <div class="grid grid-5">
-        <article class="card reveal">
-          <h4>Backend</h4>
-          <p>Go, Node.js, Gin, REST, Microservices</p>
-        </article>
-        <article class="card reveal">
-          <h4>Databases</h4>
-          <p>PostgreSQL, MySQL, Redis, Query tuning</p>
-        </article>
-        <article class="card reveal">
-          <h4>DevOps Basics</h4>
-          <p>Docker, Linux, CI with GitHub Actions</p>
-        </article>
-        <article class="card reveal">
-          <h4>App Development</h4>
-          <p>Flutter, React, Next.js, Tailwind CSS</p>
-        </article>
-        <article class="card reveal">
-          <h4>Tools</h4>
-          <p>Git, Firebase, Postman, VS Code</p>
-        </article>
+      <div class="skills-grid">
+        <article class="skill-note reveal"><span class="tape"></span><h4>Backend</h4><p>Go, Node.js, Gin, REST APIs, Microservices</p></article>
+        <article class="skill-note reveal"><span class="tape"></span><h4>Databases</h4><p>PostgreSQL, MySQL, Redis, indexing strategies</p></article>
+        <article class="skill-note reveal"><span class="tape"></span><h4>App Dev</h4><p>Flutter, React, Next.js, responsive UX</p></article>
+        <article class="skill-note reveal"><span class="tape"></span><h4>DevOps</h4><p>Docker, Linux, CI/CD with GitHub Actions</p></article>
+        <article class="skill-note reveal"><span class="tape"></span><h4>Tools</h4><p>Git, Firebase, Postman, VS Code</p></article>
       </div>
     </section>
 
@@ -106,81 +117,25 @@
       <div class="section-head reveal">
         <h3>Projects</h3>
       </div>
-      <div class="stacked" id="project-list">
-        <article class="card note reveal">
-          <p class="note-date">2026 · API</p>
-          <h4>Go CRUD APIs</h4>
-          <p>RESTful CRUD services with auth, validation, clean layering, and database migrations.</p>
-          <p class="tags">Go · Gin · PostgreSQL</p>
-          <a href="https://github.com/raaj2493" target="_blank" rel="noopener noreferrer">View on GitHub</a>
-        </article>
-        <article class="card note reveal">
-          <p class="note-date">2026 · Realtime</p>
-          <h4>Realtime Chat App</h4>
-          <p>Low-latency messaging with socket connections, user presence, and room-based communication.</p>
-          <p class="tags">Node.js · WebSocket · Redis</p>
-          <a href="https://github.com/raaj2493" target="_blank" rel="noopener noreferrer">View on GitHub</a>
-        </article>
-        <article class="card note reveal">
-          <p class="note-date">2025 · Productivity</p>
-          <h4>Task Management App</h4>
-          <p>Cross-platform task planner with reminders, categories, and offline-first state syncing.</p>
-          <p class="tags">Flutter · Firebase</p>
-          <a href="https://github.com/raaj2493" target="_blank" rel="noopener noreferrer">View on GitHub</a>
-        </article>
-        <article class="card note reveal">
-          <p class="note-date">2025 · Fun Build</p>
-          <h4>Meme App</h4>
-          <p>Simple meme feed app with pagination, local favorites, and responsive UI patterns.</p>
-          <p class="tags">Flutter · REST API</p>
-          <a href="https://github.com/raaj2493" target="_blank" rel="noopener noreferrer">View on GitHub</a>
-        </article>
-        <article class="card note reveal">
-          <p class="note-date">2025 · Finance</p>
-          <h4>Finance App</h4>
-          <p>Expense tracking with category insights, monthly summaries, and secure authentication flow.</p>
-          <p class="tags">Flutter · Firebase · Charts</p>
-          <a href="https://github.com/raaj2493" target="_blank" rel="noopener noreferrer">View on GitHub</a>
-        </article>
-        <article class="card note reveal">
-          <p class="note-date">2024 · Habit</p>
-          <h4>Habit Tracking App</h4>
-          <p>Habit streak tracking system with reminders, weekly snapshots, and progress dashboards.</p>
-          <p class="tags">Flutter · Local Storage</p>
-          <a href="https://github.com/raaj2493" target="_blank" rel="noopener noreferrer">View on GitHub</a>
-        </article>
+      <div class="stacked">
+        <article class="card project-card reveal"><p class="note-date">Day 01</p><h4>Go CRUD APIs</h4><p>RESTful APIs with auth, validation, and layered architecture.</p><p class="tags">Go · Gin · PostgreSQL</p><div><a href="https://github.com/raaj2493" target="_blank" rel="noopener noreferrer">GitHub</a> · <a href="#">Live Demo</a></div></article>
+        <article class="card project-card reveal"><p class="note-date">Day 02</p><h4>Realtime Chat App</h4><p>Low-latency chat with rooms, presence, and scalable state handling.</p><p class="tags">Node.js · Socket · Redis</p><div><a href="https://github.com/raaj2493" target="_blank" rel="noopener noreferrer">GitHub</a> · <a href="#">Live Demo</a></div></article>
+        <article class="card project-card reveal"><p class="note-date">Day 03</p><h4>Task Management App</h4><p>Clean productivity app with offline sync and intuitive task workflow.</p><p class="tags">Flutter · Firebase</p><div><a href="https://github.com/raaj2493" target="_blank" rel="noopener noreferrer">GitHub</a> · <a href="#">Live Demo</a></div></article>
+        <article class="card project-card reveal"><p class="note-date">Day 04</p><h4>Meme App</h4><p>Fun feed app with pagination, favorites, and lightweight architecture.</p><p class="tags">Flutter · REST API</p><div><a href="https://github.com/raaj2493" target="_blank" rel="noopener noreferrer">GitHub</a> · <a href="#">Live Demo</a></div></article>
+        <article class="card project-card reveal"><p class="note-date">Day 05</p><h4>Finance App</h4><p>Expense tracking with category insights and secure auth workflow.</p><p class="tags">Flutter · Firebase · Charts</p><div><a href="https://github.com/raaj2493" target="_blank" rel="noopener noreferrer">GitHub</a> · <a href="#">Live Demo</a></div></article>
+        <article class="card project-card reveal"><p class="note-date">Day 06</p><h4>Habit Tracking App</h4><p>Daily streak-based habit tracker focused on consistency and simplicity.</p><p class="tags">Flutter · Local Storage</p><div><a href="https://github.com/raaj2493" target="_blank" rel="noopener noreferrer">GitHub</a> · <a href="#">Live Demo</a></div></article>
       </div>
     </section>
 
     <section class="section wrap" id="notes">
       <div class="section-head reveal">
-        <h3>Developer Notes</h3>
+        <h3>📝 Developer Notes</h3>
       </div>
-      <div class="grid grid-2">
-        <article class="card note reveal">
-          <p class="note-date">Go Notes</p>
-          <h4>Handling context and cancellation cleanly</h4>
-          <p>Patterns for graceful timeouts and request cancellation in production APIs.</p>
-          <a href="#">Read More</a>
-        </article>
-        <article class="card note reveal">
-          <p class="note-date">Backend Notes</p>
-          <h4>Reliable API error contracts</h4>
-          <p>Designing predictable error responses that improve frontend integration speed.</p>
-          <a href="#">Read More</a>
-        </article>
-        <article class="card note reveal">
-          <p class="note-date">Database Notes</p>
-          <h4>Indexing strategy for real workloads</h4>
-          <p>Choosing indexes based on query patterns and measuring impact with EXPLAIN.</p>
-          <a href="#">Read More</a>
-        </article>
-        <article class="card note reveal">
-          <p class="note-date">System Design Notes</p>
-          <h4>From monolith to services, safely</h4>
-          <p>A practical migration path that protects delivery speed and avoids overengineering.</p>
-          <a href="#">Read More</a>
-        </article>
+      <div class="notes-grid">
+        <article class="card note-card reveal"><span class="tape"></span><p class="note-date">Go Notes</p><h4>Context cancellation patterns</h4><p>Building request-safe handlers with clean timeout boundaries.</p><a href="#">Read more</a></article>
+        <article class="card note-card reveal"><span class="tape"></span><p class="note-date">Backend Notes</p><h4>Error contracts that scale</h4><p>Reliable API error design for fast frontend integration.</p><a href="#">Read more</a></article>
+        <article class="card note-card reveal"><span class="tape"></span><p class="note-date">Database Notes</p><h4>Indexing from real query behavior</h4><p>Using EXPLAIN and query analysis for practical tuning.</p><a href="#">Read more</a></article>
+        <article class="card note-card reveal"><span class="tape"></span><p class="note-date">System Design Notes</p><h4>Monolith to services, gradually</h4><p>Low-risk decomposition while keeping shipping velocity.</p><a href="#">Read more</a></article>
       </div>
     </section>
 
@@ -205,29 +160,23 @@
         <h3>Contact</h3>
       </div>
       <form class="card form reveal" action="#" method="post">
-        <label>
-          Name
-          <input type="text" name="name" placeholder="Your name" />
-        </label>
-        <label>
-          Email
-          <input type="email" name="email" placeholder="you@example.com" />
-        </label>
-        <label>
-          Message
-          <textarea name="message" rows="5" placeholder="Let's build something meaningful."></textarea>
-        </label>
-        <button type="submit" class="btn btn-primary">Send Message</button>
+        <label>Name<input type="text" name="name" placeholder="Your name" /></label>
+        <label>Email<input type="email" name="email" placeholder="you@example.com" /></label>
+        <label>Message<textarea name="message" rows="5" placeholder="Let's build something meaningful."></textarea></label>
+        <button type="submit" class="btn btn-soft">Send Message</button>
       </form>
     </section>
   </main>
 
   <footer class="footer wrap">
+    <button class="footer-about-toggle" id="footer-about-toggle" aria-expanded="false" aria-controls="footer-about-panel">About this notebook</button>
     <p>Built with focus, patience, and love for clean code.</p>
     <div class="footer-links">
       <a href="https://github.com/raaj2493" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-github"></i></a>
-      <a href="https://www.linkedin.com/in/rajgiri2493/" target="_blank" rel="noopener noreferrer"><i
-          class="fa-brands fa-linkedin"></i></a>
+      <a href="https://www.linkedin.com/in/rajgiri2493/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-linkedin"></i></a>
+    </div>
+    <div id="footer-about-panel" class="footer-panel" hidden>
+      Calm workspace for documenting systems thinking, engineering notes, and product building in public.
     </div>
   </footer>
 

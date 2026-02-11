@@ -20,6 +20,23 @@ menuBtn?.addEventListener("click", () => {
   navLinks.classList.toggle("open");
 });
 
+const aboutToggle = document.getElementById("about-toggle");
+const aboutPanel = document.getElementById("about-panel");
+aboutToggle?.addEventListener("click", () => {
+  const expanded = aboutToggle.getAttribute("aria-expanded") === "true";
+  aboutToggle.setAttribute("aria-expanded", String(!expanded));
+  aboutToggle.textContent = expanded ? "Expand" : "Collapse";
+  aboutPanel.hidden = expanded;
+});
+
+const footerAboutToggle = document.getElementById("footer-about-toggle");
+const footerAboutPanel = document.getElementById("footer-about-panel");
+footerAboutToggle?.addEventListener("click", () => {
+  const expanded = footerAboutToggle.getAttribute("aria-expanded") === "true";
+  footerAboutToggle.setAttribute("aria-expanded", String(!expanded));
+  footerAboutPanel.hidden = expanded;
+});
+
 const navAnchors = [...document.querySelectorAll(".nav-links a")];
 const sections = [...document.querySelectorAll("main section")];
 
@@ -47,9 +64,7 @@ async function fetchGitHubStats() {
       fetch(`https://api.github.com/users/${GITHUB_USER}/repos?per_page=100&type=owner`),
     ]);
 
-    if (!userRes.ok || !reposRes.ok) {
-      throw new Error("GitHub request failed");
-    }
+    if (!userRes.ok || !reposRes.ok) throw new Error("GitHub request failed");
 
     const user = await userRes.json();
     const repos = await reposRes.json();
@@ -81,7 +96,6 @@ async function fetchGitHubStats() {
 async function fetchHeatmap(year) {
   const heatmapEl = document.getElementById("heatmap");
   const statusEl = document.getElementById("heatmap-status");
-
   if (!heatmapEl || !statusEl) return;
 
   statusEl.textContent = "Loading contribution data...";
@@ -115,7 +129,6 @@ function initYearFilter() {
   if (!yearFilter) return;
 
   const currentYear = new Date().getFullYear();
-
   for (let year = currentYear; year >= currentYear - 4; year -= 1) {
     const option = document.createElement("option");
     option.value = String(year);
@@ -123,10 +136,7 @@ function initYearFilter() {
     yearFilter.appendChild(option);
   }
 
-  yearFilter.addEventListener("change", (event) => {
-    fetchHeatmap(event.target.value);
-  });
-
+  yearFilter.addEventListener("change", (event) => fetchHeatmap(event.target.value));
   fetchHeatmap(currentYear);
 }
 
