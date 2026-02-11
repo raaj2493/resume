@@ -26,7 +26,7 @@ aboutToggle?.addEventListener("click", () => {
   const expanded = aboutToggle.getAttribute("aria-expanded") === "true";
   aboutToggle.setAttribute("aria-expanded", String(!expanded));
   aboutToggle.textContent = expanded ? "Expand" : "Collapse";
-  aboutPanel.hidden = expanded;
+  if (aboutPanel) aboutPanel.hidden = expanded;
 });
 
 const footerAboutToggle = document.getElementById("footer-about-toggle");
