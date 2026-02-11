@@ -64,7 +64,7 @@ body {
   padding: 3rem 1rem 2.4rem;
   border: 1px solid var(--line);
   border-radius: 24px;
-  background: linear-gradient(145deg, rgba(217, 210, 255, 0.55), rgba(214, 232, 255, 0.55));
+  background: linear-gradient(145deg, rgba(214, 232, 255, 0.62), rgba(220, 246, 232, 0.58));
   box-shadow: var(--shadow);
   overflow: hidden;
 }
@@ -120,7 +120,7 @@ h2 { margin: 0; font-size: clamp(1.1rem, 2.7vw, 1.6rem); }
 .journey-card p { margin: 0.2rem 0 0.6rem; }
 .journey-progress label { display: flex; justify-content: space-between; font-size: 1.05rem; }
 .progress-line { border-radius: 999px; background: #ebedf7; height: 9px; overflow: hidden; }
-.progress-line i { display: block; width: 84%; height: 100%; background: linear-gradient(90deg, #c4b7ff, #abcfff); }
+.progress-line i { display: block; width: 84%; height: 100%; background: linear-gradient(90deg, #9fc6ff, #98e5c6); }
 
 .btn {
   border: 1px solid var(--line);
@@ -171,6 +171,34 @@ h2 { margin: 0; font-size: clamp(1.1rem, 2.7vw, 1.6rem); }
   background: var(--paper);
   box-shadow: var(--shadow);
   padding: 1rem;
+}
+
+#about .card {
+  background: linear-gradient(180deg, #fffdf8, #fff8ed);
+}
+
+#projects .project-card:nth-child(4n + 1),
+#notes .note-card:nth-child(4n + 1),
+#github .stat:nth-child(4n + 1) {
+  background: #fff9ef;
+}
+
+#projects .project-card:nth-child(4n + 2),
+#notes .note-card:nth-child(4n + 2),
+#github .stat:nth-child(4n + 2) {
+  background: #f3f9ff;
+}
+
+#projects .project-card:nth-child(4n + 3),
+#notes .note-card:nth-child(4n + 3),
+#github .stat:nth-child(4n + 3) {
+  background: #f7f3ff;
+}
+
+#projects .project-card:nth-child(4n),
+#notes .note-card:nth-child(4n),
+#github .stat:nth-child(4n) {
+  background: #f2fcf5;
 }
 
 .sticky-grid { margin-top: .7rem; display: grid; gap: .65rem; grid-template-columns: repeat(2, minmax(0,1fr)); }
