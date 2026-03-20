@@ -1,149 +1,144 @@
-document.addEventListener('DOMContentLoaded', () => {
-    // Scroll Reveal Animation
-    const revealElements = document.querySelectorAll('.scroll-reveal');
+const GITHUB_USER = "raaj2493";
 
-    const revealOnScroll = () => {
-        const windowHeight = window.innerHeight;
-        const elementVisible = 50; /* Reduced from 100 for earlier triggering */
-
-        revealElements.forEach((element) => {
-            const elementTop = element.getBoundingClientRect().top;
-
-            if (elementTop < windowHeight - elementVisible) {
-                element.classList.add('active');
-            }
-        });
-    };
-
-    window.addEventListener('scroll', revealOnScroll);
-    revealOnScroll();
-
-    // Smooth Scrolling
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                target.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-            }
-        });
+const revealObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) entry.target.classList.add("on");
     });
+  },
+  { threshold: 0.12 }
+);
 
-    // Mobile Menu
-    const hamburger = document.querySelector('.hamburger');
-    const navLinks = document.querySelector('.nav-links');
+document.querySelectorAll(".reveal").forEach((el) => revealObserver.observe(el));
 
-    if (hamburger) {
-        hamburger.addEventListener('click', () => {
-            hamburger.classList.toggle('active');
-            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
-            navLinks.style.flexDirection = 'column';
-            navLinks.style.position = 'absolute';
-            navLinks.style.top = '70px';
-            navLinks.style.right = '0';
-            navLinks.style.background = 'rgba(255, 255, 255, 0.95)';
-            navLinks.style.backdropFilter = 'blur(10px)';
-            navLinks.style.width = '100%';
-            navLinks.style.padding = '2rem';
-            navLinks.style.boxShadow = '0 4px 6px rgba(0,0,0,0.1)';
-            navLinks.style.gap = '1.5rem';
-        });
-    }
+const menuBtn = document.getElementById("menu-btn");
+const navLinks = document.getElementById("nav-links");
 
-    // Typing Animation
-    const typingText = document.querySelector('.typing-text');
-    const roles = ['Flutter Developer', 'Full Stack Developer', 'Software Engineer', 'Backend Developer'];
-    let roleIndex = 0;
-    let charIndex = 0;
-    let isDeleting = false;
-    let typeSpeed = 100;
-
-    function type() {
-        const currentRole = roles[roleIndex];
-
-        if (isDeleting) {
-            typingText.textContent = currentRole.substring(0, charIndex - 1);
-            charIndex--;
-            typeSpeed = 50;
-        } else {
-            typingText.textContent = currentRole.substring(0, charIndex + 1);
-            charIndex++;
-            typeSpeed = 100;
-        }
-
-        if (!isDeleting && charIndex === currentRole.length) {
-            isDeleting = true;
-            typeSpeed = 2000; // Pause at end
-        } else if (isDeleting && charIndex === 0) {
-            isDeleting = false;
-            roleIndex = (roleIndex + 1) % roles.length;
-            typeSpeed = 500; // Pause before new word
-        }
-
-        setTimeout(type, typeSpeed);
-    }
-
-    if (typingText) {
-        type();
-    }
-
-    // Tilt Effect for Cards
-    const tiltElements = document.querySelectorAll('[data-tilt]');
-
-    tiltElements.forEach(element => {
-        element.addEventListener('mousemove', (e) => {
-            const rect = element.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
-
-            const centerX = rect.width / 2;
-            const centerY = rect.height / 2;
-
-            const rotateX = ((y - centerY) / centerY) * -5; // Max rotation deg
-            const rotateY = ((x - centerX) / centerX) * 5;
-
-            element.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
-        });
-
-        element.addEventListener('mouseleave', () => {
-            element.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)';
-        });
-    });
-
-    // Dark Mode Toggle
-    const themeToggle = document.getElementById('theme-toggle');
-    const body = document.body;
-    const icon = themeToggle.querySelector('i');
-
-    // Check for saved theme
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme === 'dark') {
-        body.classList.add('dark-mode');
-        icon.classList.remove('fa-moon');
-        icon.classList.add('fa-sun');
-    }
-
-    themeToggle.addEventListener('click', () => {
-        body.classList.toggle('dark-mode');
-        const isDark = body.classList.contains('dark-mode');
-
-        // Update Icon
-        if (isDark) {
-            icon.classList.remove('fa-moon');
-            icon.classList.add('fa-sun');
-            localStorage.setItem('theme', 'dark');
-        } else {
-            icon.classList.remove('fa-sun');
-            icon.classList.add('fa-moon');
-            localStorage.setItem('theme', 'light');
-        }
-
-        // Trigger 3D background update if possible
-        if (window.updateTheme3D) {
-            window.updateTheme3D(isDark);
-        }
-    });
+menuBtn?.addEventListener("click", () => {
+  const expanded = menuBtn.getAttribute("aria-expanded") === "true";
+  menuBtn.setAttribute("aria-expanded", String(!expanded));
+  navLinks.classList.toggle("open");
 });
+
+const aboutToggle = document.getElementById("about-toggle");
+const aboutPanel = document.getElementById("about-panel");
+aboutToggle?.addEventListener("click", () => {
+  const expanded = aboutToggle.getAttribute("aria-expanded") === "true";
+  aboutToggle.setAttribute("aria-expanded", String(!expanded));
+  aboutToggle.textContent = expanded ? "Expand" : "Collapse";
+  if (aboutPanel) aboutPanel.hidden = expanded;
+});
+
+const footerAboutToggle = document.getElementById("footer-about-toggle");
+const footerAboutPanel = document.getElementById("footer-about-panel");
+footerAboutToggle?.addEventListener("click", () => {
+  const expanded = footerAboutToggle.getAttribute("aria-expanded") === "true";
+  footerAboutToggle.setAttribute("aria-expanded", String(!expanded));
+  footerAboutPanel.hidden = expanded;
+});
+
+const navAnchors = [...document.querySelectorAll(".nav-links a")];
+const sections = [...document.querySelectorAll("main section")];
+
+const sectionObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      navAnchors.forEach((anchor) => {
+        anchor.classList.toggle("active", anchor.getAttribute("href") === `#${entry.target.id}`);
+      });
+    });
+  },
+  { threshold: 0.5 }
+);
+
+sections.forEach((section) => sectionObserver.observe(section));
+
+async function fetchGitHubStats() {
+  const statsEl = document.getElementById("github-stats");
+  if (!statsEl) return;
+
+  try {
+    const [userRes, reposRes] = await Promise.all([
+      fetch(`https://api.github.com/users/${GITHUB_USER}`),
+      fetch(`https://api.github.com/users/${GITHUB_USER}/repos?per_page=100&type=owner`),
+    ]);
+
+    if (!userRes.ok || !reposRes.ok) throw new Error("GitHub request failed");
+
+    const user = await userRes.json();
+    const repos = await reposRes.json();
+    const ownedRepos = repos.filter((repo) => !repo.fork);
+    const totalStars = ownedRepos.reduce((sum, repo) => sum + (repo.stargazers_count || 0), 0);
+
+    const stats = [
+      ["Repositories", user.public_repos],
+      ["Stars", totalStars],
+      ["Followers", user.followers],
+      ["Following", user.following],
+    ];
+
+    statsEl.innerHTML = stats
+      .map(
+        ([label, value]) => `
+        <article class="card stat reveal on">
+          <p>${label}</p>
+          <strong>${value}</strong>
+        </article>
+      `
+      )
+      .join("");
+  } catch (error) {
+    statsEl.innerHTML = `<p class="muted">Unable to load GitHub stats right now.</p>`;
+  }
+}
+
+async function fetchHeatmap(year) {
+  const heatmapEl = document.getElementById("heatmap");
+  const statusEl = document.getElementById("heatmap-status");
+  if (!heatmapEl || !statusEl) return;
+
+  statusEl.textContent = "Loading contribution data...";
+
+  try {
+    const response = await fetch(`https://github-contributions-api.jogruber.de/v4/${GITHUB_USER}?y=${year}`);
+    if (!response.ok) throw new Error("Heatmap API failed");
+
+    const data = await response.json();
+    const contributions = data?.contributions || [];
+    if (!contributions.length) throw new Error("No contributions found");
+
+    const maxCount = Math.max(...contributions.map((item) => item.count));
+
+    heatmapEl.innerHTML = contributions
+      .map((day) => {
+        const level = maxCount === 0 ? 0 : Math.min(4, Math.ceil((day.count / maxCount) * 4));
+        return `<button class="cell" data-level="${level}" title="${day.date}: ${day.count} contributions" aria-label="${day.date}, ${day.count} contributions"></button>`;
+      })
+      .join("");
+
+    statusEl.textContent = `Showing contributions for ${year}.`;
+  } catch (error) {
+    heatmapEl.innerHTML = "";
+    statusEl.textContent = "Contribution data is temporarily unavailable.";
+  }
+}
+
+function initYearFilter() {
+  const yearFilter = document.getElementById("year-filter");
+  if (!yearFilter) return;
+
+  const currentYear = new Date().getFullYear();
+  for (let year = currentYear; year >= currentYear - 4; year -= 1) {
+    const option = document.createElement("option");
+    option.value = String(year);
+    option.textContent = String(year);
+    yearFilter.appendChild(option);
+  }
+
+  yearFilter.addEventListener("change", (event) => fetchHeatmap(event.target.value));
+  fetchHeatmap(currentYear);
+}
+
+fetchGitHubStats();
+initYearFilter();

@@ -1,0 +1,15 @@
+Ashutosh Giri
+Backend Engineer • Flutter Developer • Full Stack Builder
+
+Email: raj.ash2493@gmail.com
+GitHub: https://github.com/raaj2493
+LinkedIn: https://www.linkedin.com/in/rajgiri2493/
+
+Summary:
+I build high-performance backend systems, scalable APIs, and production-grade applications.
+
+Core Skills:
+- Go, Node.js, Gin
+- PostgreSQL, MySQL, Redis
+- Flutter, React, Next.js, Tailwind CSS
+- Docker, GitHub Actions, Firebase, Linux
