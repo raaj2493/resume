@@ -1,329 +1,586 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="en" data-theme="dark">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ashutosh Giri | Full Stack Developer</title>
-    <meta name="description"
-        content="Portfolio of Ashutosh Giri, a Full Stack App Developer specializing in Flutter, Node.js, and AI-powered solutions.">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="theme-color" content="#000000" id="theme-color-meta">
+  <title>Ashutosh Giri ✩ | Full Stack Software Engineer</title>
+  <meta name="description" content="Portfolio of Ashutosh Giri, a Full Stack Software Engineer specializing in backend systems (Go, PostgreSQL, Docker) and mobile app development (Flutter, Firebase).">
+  <meta property="og:title" content="Ashutosh Giri ✩ | Full Stack Software Engineer">
+  <meta property="og:description" content="Building scalable systems & AI‑powered applications using Go, PostgreSQL, Docker, and Flutter.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="profile.jpg">
+
+  <link rel="preload" href="profile.jpg" as="image">
+  <link rel="icon" type="image/jpeg" href="profile.jpg">
+  <link rel="apple-touch-icon" href="profile.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700&family=Merriweather+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-    <div id="canvas-container"></div>
-    <nav class="navbar">
-        <div class="container nav-container">
-            <a href="#" class="logo">AG.</a>
-            <ul class="nav-links">
-                <li><a href="#about">About</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-            <button id="theme-toggle" aria-label="Toggle Dark Mode">
-                <i class="fas fa-moon"></i>
-            </button>
-            <div class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
+
+<div id="scroll-progress"></div>
+
+<header id="nav">
+  <div class="nav-inner">
+    <a href="#about" class="nav-logo">ashutosh.sys <span>｡𖦹°‧</span></a>
+    <div style="display:flex;align-items:center;gap:12px">
+      <nav id="dnav" style="display:none;align-items:center;gap:1.5rem">
+        <a href="#about"          class="nav-a" data-s="about">About</a>
+        <a href="#experience"     class="nav-a" data-s="experience">Experience</a>
+        <a href="#projects"       class="nav-a" data-s="projects">Projects</a>
+        <a href="#skills"         class="nav-a" data-s="skills">Skills</a>
+        <a href="#certifications" class="nav-a" data-s="certifications">Certifications</a>
+        <a href="https://ashutosh-giri-resume.vercel.app" class="nav-cta" target="_blank" rel="noopener noreferrer">Resume ↗</a>
+      </nav>
+      <button id="thm" aria-label="Toggle theme">
+        <svg class="ico-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18a6 6 0 1 1 0-12 6 6 0 0 1 0 12zm0-2a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM11 1h2v3h-2V1zm0 19h2v3h-2v-3zM3.515 4.929l1.414-1.414L7.05 5.636 5.636 7.05 3.515 4.93zM16.95 18.364l1.414-1.414 2.121 2.121-1.414 1.414-2.121-2.121zm2.121-14.85l1.414 1.415-2.121 2.121-1.414-1.414 2.121-2.121zM5.636 16.95l1.414 1.414-2.121 2.121-1.414-1.414 2.121-2.121zM23 11v2h-3v-2h3zM4 11v2H1v-2h3z"/></svg>
+        <svg class="ico-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 7a7 7 0 0 0 12 4.9v.1c0 5.523-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2h.1A6.979 6.979 0 0 0 10 7zm-6 5a8 8 0 0 0 15.062 3.762A9 9 0 0 1 8.238 4.938 7.999 7.999 0 0 0 4 12z"/></svg>
+      </button>
+      <button id="hbg" aria-label="Menu">
+        <span class="hbar" style="width:20px"></span>
+        <span class="hbar" style="width:20px"></span>
+        <span class="hbar" style="width:12px;align-self:flex-end"></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div id="mob-overlay" onclick="closeMob()"></div>
+<div id="mob-menu">
+  <button class="mob-close" onclick="closeMob()" aria-label="Close Menu">×</button>
+  <a href="#about"          onclick="closeMob()">about</a>
+  <a href="#experience"     onclick="closeMob()">experience</a>
+  <a href="#projects"       onclick="closeMob()">projects</a>
+  <a href="#skills"         onclick="closeMob()">skills</a>
+  <a href="#certifications" onclick="closeMob()">certifications</a>
+  <a href="https://ashutosh-giri-resume.vercel.app" target="_blank" rel="noopener noreferrer" onclick="closeMob()">resume</a>
+  <a href="#contact"        onclick="closeMob()">contact</a>
+</div>
+
+<button id="btt" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">
+  <svg viewBox="0 0 24 24"><path d="M12 4l-8 8h5v8h6v-8h5z"/></svg>
+</button>
+
+<main>
+
+<!-- ABOUT / HERO SECTION -->
+<section id="about" class="anch" style="min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:7rem 2rem 4rem;position:relative;overflow:hidden;background:var(--bg0)">
+  <div class="bg-lines"></div>
+  <div class="orb" style="width:500px;height:500px;top:-150px;right:-180px"></div>
+  <div class="orb" style="width:320px;height:320px;bottom:-80px;left:-100px"></div>
+
+  <div class="container">
+    <div class="hero-grid">
+
+      <div class="hero-text">
+        <p class="hero-a d2" style="font-family:var(--mono);font-size:.6rem;font-weight:600;letter-spacing:.22em;color:var(--accent);margin-bottom:.85rem">FULL STACK ENGINEER · BACKEND · AI</p>
+
+        <h1 class="hero-a d3" style="font-family:var(--serif);font-size:clamp(1.8rem,4vw,3.2rem);font-weight:900;line-height:1.08;letter-spacing:-.03em;color:var(--t0);margin-bottom:.4rem">
+          Hi, I'm<br><em style="font-style:italic">Ashutosh!</em>
+        </h1>
+
+        <div class="hero-a d3" style="font-family:var(--mono);font-size:.75rem;font-weight:500;color:var(--t2);display:flex;align-items:center;gap:6px;margin-bottom:1.8rem">
+          <span style="color:var(--accent)">›</span>
+          <span id="typ"></span><span class="cur"></span>
         </div>
-    </nav>
 
-    <header class="hero">
-        <div class="container hero-container">
-            <div class="hero-content fade-in-up">
-                <span class="greeting">Hello, I'm</span>
-                <h1 class="name">Ashutosh Giri</h1>
-                <h2 class="role">I am a <span class="typing-text"></span></h2>
-                <p class="bio">Building modern, scalable, and AI-powered applications. Passionate about Flutter,
-                    Node.js, and creating intuitive digital experiences.</p>
-                <div class="hero-buttons">
-                    <a href="#projects" class="btn btn-primary">View Work</a>
-                    <a href="#contact" class="btn btn-outline">Contact Me</a>
-                </div>
-                <div class="social-links">
-                    <a href="https://github.com/raaj2493" target="_blank" aria-label="GitHub"><i
-                            class="fab fa-github"></i></a>
-                    <a href="https://www.linkedin.com/in/rajgiri2493/" target="_blank" aria-label="LinkedIn"><i
-                            class="fab fa-linkedin"></i></a>
-                    <a href="mailto:raj.ash2493@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
-                    <a href="tel:+918512088003" aria-label="Phone"><i class="fas fa-phone"></i></a>
-                </div>
-            </div>
-            <div class="hero-image fade-in-up delay-200">
-                <div class="blob-container" data-tilt>
-                    <div class="blob blob-1"></div>
-                    <div class="blob blob-2"></div>
-                    <img src="profile.jpg" alt="Ashutosh Giri" class="profile-img">
-                </div>
-            </div>
+        <!-- SOCIAL ICONS -->
+        <div class="hero-a d4 hero-socials" style="margin-bottom:1.8rem;">
+            <a href="https://github.com/raaj2493" target="_blank" rel="noopener noreferrer" class="hero-social-link" aria-label="GitHub Profile">
+              <img src="https://api.iconify.design/skill-icons/github-dark.svg" alt="GitHub">
+            </a>
+            <a href="https://www.linkedin.com/in/rajgiri2493" target="_blank" rel="noopener noreferrer" class="hero-social-link" aria-label="LinkedIn Profile">
+              <img src="https://api.iconify.design/devicon/linkedin.svg" alt="LinkedIn">
+            </a>
+            <a href="mailto:raj.ash2493@gmail.com" class="hero-social-link" aria-label="Email Me">
+              <img src="https://api.iconify.design/logos/google-gmail.svg" alt="Gmail">
+            </a>
+            <a href="https://ashutosh-giri-resume.vercel.app" target="_blank" rel="noopener noreferrer" class="hero-social-link" aria-label="Portfolio Website">
+              <img src="https://api.iconify.design/ri/global-line.svg?color=white" class="inv-light" alt="Portfolio">
+            </a>
         </div>
-    </header>
 
-    <section id="about" class="section about">
-        <div class="container">
-            <h2 class="section-title">About Me</h2>
-            <div class="about-content glass-card">
-                <div class="about-text scroll-reveal">
-                    <p>Aspiring Software Developer with hands-on experience in cross-platform mobile application
-                        development using Flutter and Firebase. Proficient in integrating RESTful APIs, enhancing
-                        application performance, and following clean MVC-based architecture.</p>
-                    <p>Strong foundation in computer science, version control, and Agile development practices.
-                        Passionate
-                        about delivering scalable, user-focused applications and continuously improving technical
-                        expertise.</p>
-                    <div class="quote-box">
-                        <blockquote>"Code. Debug. Repeat. 🚀"</blockquote>
-                    </div>
+        <p class="hero-a d4" style="font-family:var(--serif) !important; font-size:.85rem; font-weight:300; color:var(--t2); line-height:1.7; max-width:540px; margin-bottom:1rem;">
+          Full Stack Software Engineering student with a strong focus on Backend Engineering and AI. Proficient in designing scalable backend systems using Go, PostgreSQL, and Docker, while also experienced in cross‑platform mobile development with Flutter and Firebase. Passionate about building robust REST APIs, implementing secure authentication and authorization, and applying clean architecture principles. Actively exploring AI integration through LLM APIs, prompt engineering, and RAG techniques to build intelligent applications. <span class="cur"></span>
+        </p>
+
+        <p class="hero-a d5" style="font-family:var(--serif) !important; font-size:.85rem; font-weight:300; color:var(--t2); line-height:1.7; max-width:540px; margin-bottom:1.8rem;">
+          For more details about my technical journey, academic background, and full project catalog, feel free to view or download my complete <a href="https://ashutosh-giri-resume.vercel.app" target="_blank" rel="noopener noreferrer" style="color:var(--t0); text-decoration:underline; text-underline-offset:4px; font-weight:500; transition:color 0.2s;">online portfolio / resume</a>.
+        </p>  
+      </div>
+
+      <div class="hero-canvas">
+        <img src="profile.jpg" alt="Ashutosh Giri" width="400" height="400" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border:1px solid var(--accent-ring);border-radius:50%;filter:drop-shadow(0 0 15px var(--accent-glow))">
+      </div>
+
+    </div>
+  </div>
+
+  <div class="scroll-hint">
+    <span style="font-family:var(--mono);font-size:.5rem;font-weight:600;letter-spacing:.2em;color:var(--t3)">SCROLL</span>
+    <div style="width:1px;height:24px;background:linear-gradient(to bottom,var(--accent),transparent);border-radius:1px"></div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- EXPERIENCE SECTION -->
+<section id="experience" class="anch section" style="background:var(--bg1)">
+  <div class="container">
+    <div class="eyebrow">Experience</div>
+    <h2 class="sec-title">Professional <em>Journey</em></h2>
+    <p class="sec-sub">Engineering internships, mobile application shipping, and team collaboration</p>
+
+    <div class="tl sfade" style="display:flex;flex-direction:column;gap:12px">
+
+      <!-- Team Infits Internship -->
+      <div class="tl-item exp-c" role="button" tabindex="0" onclick="toggleExpCard(this)" onkeydown="if(event.key==='Enter'||event.key===' ')toggleExpCard(this)">
+        <div class="tl-dot"></div>
+        <div class="exp-inner">
+          <div class="exp-logo">
+            <img src="https://api.iconify.design/ri/building-fill.svg?color=%233b82f6" alt="Team Infits" loading="lazy" style="width:100%;height:100%;object-fit:contain;border-radius:4px;padding:4px">
+          </div>
+          <div style="flex:1;min-width:0">
+            <div class="exp-dt" style="margin-bottom:4px">OCT 2025 – PRESENT</div>
+            <h3 style="font-family:var(--serif);font-size:.95rem;font-weight:700;color:var(--t0);margin-bottom:2px">Flutter Developer Intern</h3>
+            <p style="font-family:var(--mono);font-size:.6rem;font-weight:600;color:var(--t3);margin-bottom:.3rem;letter-spacing:.07em;text-transform:uppercase">TEAM INFITS · REMOTE</p>
+            
+            <button class="exp-toggle-btn">View Details <span class="arr">↓</span></button>
+            
+            <div class="exp-details">
+              <div class="exp-details-inner">
+                <div style="display:flex;flex-direction:column;gap:5px">
+                  <div class="bul"><span>Collaborated with UI/UX designers and backend developers to deliver <strong style="color:var(--t0);font-weight:700">20+ production-ready Flutter screens</strong> using reusable widgets and structured MVC architecture.</span></div>
+                  <div class="bul"><span>Integrated <strong style="color:var(--t0);font-weight:700">5+ REST APIs</strong> and Firebase services for reliable user authentication and real-time data synchronization.</span></div>
+                  <div class="bul"><span>Optimized application responsiveness and performance across diverse devices, successfully reducing UI-related issues by <strong style="color:var(--t0);font-weight:700">approximately 25%</strong>.</span></div>
+                  <div class="bul"><span>Contributed <strong style="color:var(--t0);font-weight:700">20+ Git commits</strong> in an active Agile development environment, participating in daily stand-ups, sprint planning, and constructive peer code reviews.</span></div>
                 </div>
+              </div>
             </div>
+
+          </div>
         </div>
-    </section>
+      </div>
 
-    <section id="services" class="section services">
-        <div class="container">
-            <h2 class="section-title">What I Do</h2>
-            <div class="services-grid">
-                <div class="service-card glass-card scroll-reveal" data-tilt>
-                    <div class="service-icon"><i class="fas fa-mobile-alt"></i></div>
-                    <h3>Mobile Development</h3>
-                    <p>Building high-performance, cross-platform mobile applications using Flutter. Smooth animations
-                        and native-like performance.</p>
-                </div>
-                <div class="service-card glass-card scroll-reveal delay-100" data-tilt>
-                    <div class="service-icon"><i class="fas fa-code"></i></div>
-                    <h3>Full Stack Web</h3>
-                    <p>Creating responsive and dynamic web applications with modern frameworks like React, Next.js, and
-                        Node.js.</p>
-                </div>
-                <div class="service-card glass-card scroll-reveal delay-200" data-tilt>
-                    <div class="service-icon"><i class="fas fa-server"></i></div>
-                    <h3>Backend Systems</h3>
-                    <p>Designing robust and scalable backend architectures with Node.js, Express, and SQL/NoSQL
-                        databases.</p>
-                </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- PROJECTS SECTION -->
+<section id="projects" class="anch section" style="background:var(--bg0)">
+  <div class="bg-lines"></div>
+  <div class="container">
+    <div class="eyebrow">Projects</div>
+    <h2 class="sec-title">Deployed <em>Engineering</em> Solutions</h2>
+    <p class="sec-sub">Production backends, database engines, and cross-platform mobile systems</p>
+
+    <div class="sgrid pg">
+
+      <!-- TaskFlow Project -->
+      <div class="card" style="padding:0;overflow:hidden">
+        <div class="pimg" style="height:160px"><img src="project-taskflow.png" alt="TaskFlow" loading="lazy" width="800" height="450"><div class="pimg-grad"></div></div>
+        <div style="padding:1.25rem">
+          <div class="card-header">
+            <h3 style="font-family:var(--serif);font-size:.85rem;font-weight:700;color:var(--t0);line-height:1.4">TaskFlow: Project Management Backend (In Progress)</h3>
+            <div class="card-header-links">
+              <a href="https://github.com/raaj2493" target="_blank" rel="noopener noreferrer" class="ib ib-sm" aria-label="GitHub"><img src="https://api.iconify.design/ri/github-line.svg" style="width:12px;height:12px" alt=""></a>
             </div>
+          </div>
+          <div class="tag-row">
+            <span class="tag">Go</span>
+            <span class="tag">PostgreSQL</span>
+            <span class="tag">Docker</span>
+            <span class="tag">REST APIs</span>
+            <span class="tag">JWT</span>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:4px">
+            <div class="bul">Designing a production-inspired project management platform (Jira/Trello alternative) applying Clean Architecture and Repository Pattern.</div>
+            <div class="bul">Implementing authentication, authorization, custom middleware, and standard-library Go RESTful endpoints.</div>
+            <div class="bul">Containerizing PostgreSQL database and backend service layers using Docker Compose for seamless development environments.</div>
+          </div>
         </div>
-    </section>
+      </div>
 
-    <section id="experience" class="section experience">
-        <div class="container">
-            <h2 class="section-title">Experience</h2>
-            <div class="experience-list">
-                <div class="experience-card glass-card scroll-reveal" data-tilt>
-                    <div class="exp-header">
-                        <div class="exp-title-group">
-                            <h3>Flutter Developer Intern</h3>
-                            <h4 class="exp-company">Team Infits | Remote</h4>
-                        </div>
-                        <span class="exp-date">October 2025 – Present</span>
-                    </div>
-                    <ul class="exp-details">
-                        <li>Built and maintained 20+ production-ready Flutter screens using reusable widgets and clean
-                            MVC architecture.</li>
-                        <li>Implemented 5+ REST API integrations and Firebase services for authentication and real-time
-                            data synchronization.</li>
-                        <li>Enhanced UI responsiveness and application performance, reducing UI-related issues by
-                            approximately 25%.</li>
-                        <li>Collaborated with designers and backend developers to deliver features within Agile sprint
-                            timelines.</li>
-                        <li>Contributed 20+ Git commits across feature enhancements, bug fixes, and UI improvements.
-                        </li>
-                    </ul>
-                </div>
+      <!-- URL Shortener API -->
+      <div class="card" style="padding:0;overflow:hidden">
+        <div class="pimg" style="height:160px"><img src="project-urlshortener.png" alt="URL Shortener API" loading="lazy" width="800" height="450"><div class="pimg-grad"></div></div>
+        <div style="padding:1.25rem">
+          <div class="card-header">
+            <h3 style="font-family:var(--serif);font-size:.85rem;font-weight:700;color:var(--t0);line-height:1.4">URL Shortener API Service</h3>
+            <div class="card-header-links">
+              <a href="https://github.com/raaj2493/URL-Shortner" target="_blank" rel="noopener noreferrer" class="ib ib-sm" aria-label="GitHub"><img src="https://api.iconify.design/ri/github-line.svg" style="width:12px;height:12px" alt=""></a>
             </div>
+          </div>
+          <div class="tag-row">
+            <span class="tag">Node.js</span>
+            <span class="tag">PostgreSQL</span>
+            <span class="tag">Drizzle ORM</span>
+            <span class="tag">Express</span>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:4px">
+            <div class="bul">A fast and secure URL shortener backend mapping short codes to full redirect URLs.</div>
+            <div class="bul">Configured using PostgreSQL and Drizzle ORM to perform robust relational database queries with minimal latency.</div>
+          </div>
         </div>
-    </section>
+      </div>
 
-    <section id="education" class="section education">
-        <div class="container">
-            <h2 class="section-title">Education</h2>
-            <div class="education-card glass-card scroll-reveal" data-tilt>
-                <div class="edu-header">
-                    <div class="edu-title-group">
-                        <h3>Bachelor of Technology in Computer Science</h3>
-                        <h4 class="edu-school">Raj Kumar Goel Institute of Technology</h4>
-                        <p class="edu-location">Ghaziabad, Uttar Pradesh</p>
-                    </div>
-                    <span class="edu-date">June 2025 – June 2029</span>
-                </div>
+      <!-- Habit Tracking App -->
+      <div class="card" style="padding:0;overflow:hidden">
+        <div class="pimg" style="height:160px"><img src="project-habittracker.png" alt="Habit Tracking App" loading="lazy" width="800" height="450"><div class="pimg-grad"></div></div>
+        <div style="padding:1.25rem">
+          <div class="card-header">
+            <h3 style="font-family:var(--serif);font-size:.85rem;font-weight:700;color:var(--t0);line-height:1.4">Habit Tracking Mobile App</h3>
+            <div class="card-header-links">
+              <a href="https://github.com/raaj2493" target="_blank" rel="noopener noreferrer" class="ib ib-sm" aria-label="GitHub"><img src="https://api.iconify.design/ri/github-line.svg" style="width:12px;height:12px" alt=""></a>
             </div>
+          </div>
+          <div class="tag-row">
+            <span class="tag">Flutter</span>
+            <span class="tag">Firebase</span>
+            <span class="tag">Riverpod</span>
+            <span class="tag">Charts</span>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:4px">
+            <div class="bul">Cross-platform mobile application featuring interactive streaks and habit logging dashboards.</div>
+            <div class="bul">Designed tile-based grid charts for daily progress visualizations, syncing user records securely with Firebase.</div>
+          </div>
         </div>
-    </section>
+      </div>
 
-    <section id="skills" class="section skills">
-        <div class="container">
-            <h2 class="section-title">Tech Stack</h2>
-            <div class="skills-grid">
-                <div class="skill-category glass-card scroll-reveal">
-                    <h3>Programming Languages</h3>
-                    <div class="skill-tags">
-                        <span>Dart</span>
-                        <span>JavaScript</span>
-                        <span>Java</span>
-                        <span>Python</span>
-                        <span>SQL</span>
-                        <span>HTML5</span>
-                        <span>CSS3</span>
-                    </div>
-                </div>
-                <div class="skill-category glass-card scroll-reveal delay-100">
-                    <h3>Frameworks & Technologies</h3>
-                    <div class="skill-tags">
-                        <span>Flutter</span>
-                        <span>Node.js</span>
-                        <span>Firebase</span>
-                        <span>React.js</span>
-                        <span>Express.js</span>
-                        <span>REST APIs</span>
-                        <span>MVC Architecture</span>
-                    </div>
-                </div>
-                <div class="skill-category glass-card scroll-reveal delay-200">
-                    <h3>Databases & Tools</h3>
-                    <div class="skill-tags">
-                        <span>Firestore</span>
-                        <span>Realtime Database</span>
-                        <span>PostgreSQL</span>
-                        <span>Git</span>
-                        <span>GitHub</span>
-                        <span>Android Studio</span>
-                        <span>VS Code</span>
-                        <span>Postman</span>
-                        <span>Docker</span>
-                    </div>
-                </div>
+      <!-- Real-time Chat App -->
+      <div class="card" style="padding:0;overflow:hidden">
+        <div class="pimg" style="height:160px"><img src="project-chatapp.png" alt="Real-time Chat App" loading="lazy" width="800" height="450"><div class="pimg-grad"></div></div>
+        <div style="padding:1.25rem">
+          <div class="card-header">
+            <h3 style="font-family:var(--serif);font-size:.85rem;font-weight:700;color:var(--t0);line-height:1.4">Real-time Messaging Application</h3>
+            <div class="card-header-links">
+              <a href="https://github.com/raaj2493" target="_blank" rel="noopener noreferrer" class="ib ib-sm" aria-label="GitHub"><img src="https://api.iconify.design/ri/github-line.svg" style="width:12px;height:12px" alt=""></a>
             </div>
+          </div>
+          <div class="tag-row">
+            <span class="tag">Flutter</span>
+            <span class="tag">Firebase</span>
+            <span class="tag">FCM</span>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:4px">
+            <div class="bul">Instant message streaming app featuring customizable user profiles and active channels.</div>
+            <div class="bul">Configured Firebase Cloud Messaging (FCM) to trigger background push notifications and offline indicators.</div>
+          </div>
         </div>
-    </section>
+      </div>
 
-    <section id="projects" class="section projects">
-        <div class="container">
-            <h2 class="section-title">Featured Projects</h2>
-            <div class="projects-grid">
-                <!-- Project 1 -->
-                <article class="project-card glass-card scroll-reveal" data-tilt>
-                    <div class="project-content">
-                        <div class="project-header">
-                            <i class="fas fa-folder-open project-icon"></i>
-                            <div class="project-links">
-                                <a href="https://github.com/raaj2493" target="_blank" aria-label="GitHub Repo"><i
-                                        class="fab fa-github"></i></a>
-                            </div>
-                        </div>
-                        <h3 class="project-title">Habit Tracking App</h3>
-                        <p class="project-description">Flutter app with tile-based grid charts, customizable dashboards,
-                            and habit progress tracking.</p>
-                        <div class="project-tech">
-                            <span>Flutter</span>
-                            <span>Firebase</span>
-                            <span>Charts</span>
-                        </div>
-                    </div>
-                </article>
+    </div>
 
-                <!-- Project 2 -->
-                <article class="project-card glass-card scroll-reveal delay-100" data-tilt>
-                    <div class="project-content">
-                        <div class="project-header">
-                            <i class="fas fa-folder-open project-icon"></i>
-                            <div class="project-links">
-                                <a href="https://github.com/raaj2493" target="_blank" aria-label="GitHub Repo"><i
-                                        class="fab fa-github"></i></a>
-                            </div>
-                        </div>
-                        <h3 class="project-title">Real-time Chat App</h3>
-                        <p class="project-description">Flutter + Firebase app with chat, user profiles, and push
-                            notifications.</p>
-                        <div class="project-tech">
-                            <span>Flutter</span>
-                            <span>Firebase</span>
-                            <span>Cloud Messaging</span>
-                        </div>
-                    </div>
-                </article>
+    <div class="lft" style="margin-top:2.5rem;text-align:center">
+      <p style="font-family:var(--serif);font-size:.8rem;font-weight:300;font-style:italic;color:var(--t3);margin-bottom:1.25rem">Explore all active repositories, architectural drafts, and other code repositories on GitHub.</p>
+      <a href="https://github.com/raaj2493" target="_blank" rel="noopener noreferrer" class="btn-g">
+        <svg xmlns="http://www.w3.org/2000/svg" style="width:14px;height:14px;fill:currentColor" viewBox="0 0 24 24"><path d="M12 2C6.475 2 2 6.475 2 12a9.994 9.994 0 0 0 6.838 9.488c.5.087.687-.213.687-.476 0-.237-.013-1.024-.013-1.862-2.512.463-3.162-.612-3.362-1.175-.113-.288-.6-1.175-1.025-1.413-.35-.187-.85-.65-.013-.662.788-.013 1.35.725 1.538 1.025.9 1.512 2.338 1.087 2.912.825.088-.65.35-1.087.638-1.337-2.225-.25-4.55-1.113-4.55-4.938 0-1.088.387-1.987 1.025-2.688-.1-.25-.45-1.275.1-2.65 0 0 .837-.262 2.75 1.026a9.28 9.28 0 0 1 2.5-.338c.85 0 1.7.112 2.5.337 1.912-1.3 2.75-1.024 2.75-1.024.55 1.375.2 2.4.1 2.65.637.7 1.025 1.587 1.025 2.687 0 3.838-2.337 4.688-4.562 4.938.362.312.675.912.675 1.85 0 1.337-.013 2.412-.013 2.75 0 .262.188.574.688.474A10.016 10.016 0 0 0 22 12c0-5.525-4.475-10-10-10z"/></svg>
+        VIEW WORK ON GITHUB
+      </a>
+    </div>
+  </div>
+</section>
 
-                <!-- Project 3 -->
-                <article class="project-card glass-card scroll-reveal delay-200" data-tilt>
-                    <div class="project-content">
-                        <div class="project-header">
-                            <i class="fas fa-folder-open project-icon"></i>
-                            <div class="project-links">
-                                <a href="https://github.com/raaj2493" target="_blank" aria-label="GitHub Repo"><i
-                                        class="fab fa-github"></i></a>
-                            </div>
-                        </div>
-                        <h3 class="project-title">Task Manager App</h3>
-                        <p class="project-description">Group-based task management with CRUD functionality for team
-                            collaboration.</p>
-                        <div class="project-tech">
-                            <span>Flutter</span>
-                            <span>Firebase</span>
-                            <span>Firestore</span>
-                        </div>
-                    </div>
-                </article>
+<div class="divider"></div>
 
-                <!-- Project 4 -->
-                <article class="project-card glass-card scroll-reveal delay-300" data-tilt>
-                    <div class="project-content">
-                        <div class="project-header">
-                            <i class="fas fa-folder-open project-icon"></i>
-                            <div class="project-links">
-                                <a href="https://github.com/raaj2493/URL-Shortner" target="_blank"
-                                    aria-label="GitHub Repo"><i class="fab fa-github"></i></a>
-                            </div>
-                        </div>
-                        <h3 class="project-title">URL Shortener API</h3>
-                        <p class="project-description">A fast and secure URL shortener built with Node.js, Express,
-                            Drizzle ORM, and PostgreSQL.</p>
-                        <div class="project-tech">
-                            <span>Node.js</span>
-                            <span>PostgreSQL</span>
-                            <span>Drizzle ORM</span>
-                        </div>
-                    </div>
-                </article>
-            </div>
-            <div class="more-projects">
-                <a href="https://github.com/raaj2493" target="_blank" class="btn btn-outline">View All Projects</a>
-            </div>
+<!-- SKILLS SECTION -->
+<section id="skills" class="anch section" style="background:var(--bg0)">
+  <div class="bg-lines"></div>
+  <div class="container">
+    <div class="eyebrow">Technical Arsenal</div>
+    <h2 class="sec-title">Core <em>Competencies</em></h2>
+    <p class="sec-sub">Programming languages, frameworks, databases, and AI engineering practices</p>
+
+    <div class="skills-grid">
+
+      <!-- Left terminal -->
+      <div class="term lft">
+        <div class="term-bar">
+          <span class="td td-r"></span><span class="td td-y"></span><span class="td td-g"></span>
+          <span class="term-fname">ashutosh@dev ~ stack.json</span>
         </div>
-    </section>
-
-    <section id="contact" class="section contact">
-        <div class="container">
-            <h2 class="section-title">Get In Touch</h2>
-            <div class="glass-card contact-card">
-                <p class="contact-text">Ready to build something amazing together? Let's discuss your next project.</p>
-                <a href="mailto:raj.ash2493@gmail.com" class="btn btn-primary big-btn">Say Hello</a>
-            </div>
+        <div class="term-body" style="font-size: 0.65rem; line-height: 1.55;">
+          <div style="white-space:nowrap"><span class="tc">// Technical Stack — Ashutosh Giri</span></div>
+          <div style="white-space:nowrap"><span class="tk">"Programming Languages"</span>: [</div>
+          <div style="white-space:nowrap">&nbsp;&nbsp;<span class="ts">"Go (Golang)"</span>, <span class="ts">"Dart"</span>, <span class="ts">"SQL"</span>, <span class="ts">"JavaScript"</span>, <span class="ts">"Java"</span>, <span class="ts">"Python"</span></div>
+          <div style="white-space:nowrap">],</div>
+          <div style="white-space:nowrap"><span class="tk">"Backend Development"</span>: [</div>
+          <div style="white-space:nowrap">&nbsp;&nbsp;<span class="ts">"Go"</span>, <span class="ts">"REST APIs"</span>, <span class="ts">"gRPC"</span>, <span class="ts">"GraphQL"</span>, <span class="ts">"WebSockets"</span>, <span class="ts">"Authentication &amp; Authorization"</span>,</div>
+          <div style="white-space:nowrap">&nbsp;&nbsp;<span class="ts">"JWT"</span>, <span class="ts">"OAuth 2.0"</span>, <span class="ts">"Middleware"</span>, <span class="ts">"API Design"</span>, <span class="ts">"Background Workers"</span></div>
+          <div style="white-space:nowrap">],</div>
+          <div style="white-space:nowrap"><span class="tk">"Frontend &amp; Mobile"</span>: [</div>
+          <div style="white-space:nowrap">&nbsp;&nbsp;<span class="ts">"Flutter"</span>, <span class="ts">"Firebase"</span>, <span class="ts">"Riverpod"</span></div>
+          <div style="white-space:nowrap">],</div>
+          <div style="white-space:nowrap"><span class="tk">"Databases"</span>: [</div>
+          <div style="white-space:nowrap">&nbsp;&nbsp;<span class="ts">"PostgreSQL"</span>, <span class="ts">"MongoDB"</span>, <span class="ts">"Redis"</span>, <span class="ts">"SQL"</span>, <span class="ts">"Firebase Firestore"</span>, <span class="ts">"Firebase Realtime Database"</span></div>
+          <div style="white-space:nowrap">],</div>
+          <div style="white-space:nowrap"><span class="tk">"Software Engineering"</span>: [</div>
+          <div style="white-space:nowrap">&nbsp;&nbsp;<span class="ts">"Clean Architecture"</span>, <span class="ts">"Layered Architecture"</span>, <span class="ts">"Repository Pattern"</span>, <span class="ts">"SOLID Principles"</span>,</div>
+          <div style="white-space:nowrap">&nbsp;&nbsp;<span class="ts">"Design Patterns"</span>, <span class="ts">"Domain-Driven Design (DDD)"</span>, <span class="ts">"Object-Oriented Programming"</span>, <span class="ts">"SDLC"</span></div>
+          <div style="white-space:nowrap">],</div>
+          <div style="white-space:nowrap"><span class="tk">"System Design"</span>: [</div>
+          <div style="white-space:nowrap">&nbsp;&nbsp;<span class="ts">"Scalability"</span>, <span class="ts">"Caching"</span>, <span class="ts">"Load Balancing"</span>, <span class="ts">"Event-Driven Architecture"</span>, <span class="ts">"Microservices"</span>,</div>
+          <div style="white-space:nowrap">&nbsp;&nbsp;<span class="ts">"Distributed Systems"</span>, <span class="ts">"API Gateway"</span>, <span class="ts">"Message Queues"</span>, <span class="ts">"CQRS"</span>, <span class="ts">"Event Sourcing"</span>, <span class="ts">"High Availability"</span></div>
+          <div style="white-space:nowrap">],</div>
+          <div style="white-space:nowrap"><span class="tk">"AI Engineering"</span>: [</div>
+          <div style="white-space:nowrap">&nbsp;&nbsp;<span class="ts">"LLM APIs"</span>, <span class="ts">"Prompt Engineering"</span>, <span class="ts">"Function Calling"</span>, <span class="ts">"Embeddings"</span>, <span class="ts">"Vector Databases"</span>,</div>
+          <div style="white-space:nowrap">&nbsp;&nbsp;<span class="ts">"Retrieval-Augmented Generation (RAG)"</span>, <span class="ts">"AI Agents"</span>, <span class="ts">"AI Workflow Automation"</span></div>
+          <div style="white-space:nowrap">],</div>
+          <div style="white-space:nowrap"><span class="tk">"DevOps &amp; Cloud"</span>: [</div>
+          <div style="white-space:nowrap">&nbsp;&nbsp;<span class="ts">"Docker"</span>, <span class="ts">"Kubernetes"</span>, <span class="ts">"AWS"</span>, <span class="ts">"Linux"</span>, <span class="ts">"Nginx"</span>, <span class="ts">"CI/CD"</span>, <span class="ts">"GitHub Actions"</span>, <span class="ts">"Monitoring"</span></div>
+          <div style="white-space:nowrap">],</div>
+          <div style="white-space:nowrap"><span class="tk">"Testing"</span>: [</div>
+          <div style="white-space:nowrap">&nbsp;&nbsp;<span class="ts">"Unit Testing"</span>, <span class="ts">"Integration Testing"</span>, <span class="ts">"API Testing"</span>, <span class="ts">"Performance Testing"</span></div>
+          <div style="white-space:nowrap">],</div>
+          <div style="white-space:nowrap"><span class="tk">"Developer Tools"</span>: [</div>
+          <div style="white-space:nowrap">&nbsp;&nbsp;<span class="ts">"Git"</span>, <span class="ts">"GitHub"</span>, <span class="ts">"Postman"</span>, <span class="ts">"VS Code"</span>, <span class="ts">"Android Studio"</span></div>
+          <div style="white-space:nowrap">]</div>
+          <div style="white-space:nowrap"><span class="tc">// actively_shipping: true</span><span class="cur"></span></div>
         </div>
-    </section>
+      </div>
 
-    <footer class="footer">
-        <div class="container">
-            <p>Designed & Built by Ashutosh Giri</p>
-            <div class="footer-socials">
-                <a href="https://github.com/raaj2493" target="_blank"><i class="fab fa-github"></i></a>
-                <a href="https://www.linkedin.com/in/rajgiri2493/" target="_blank"><i class="fab fa-linkedin"></i></a>
-            </div>
+      <!-- Right pills -->
+      <div class="rgt" style="display:flex;flex-direction:column;gap:1.85rem">
+        <div>
+          <div class="scat">Programming Languages</div>
+          <div style="display:flex;flex-wrap:wrap;gap:8px">
+            <span class="pill"><img src="https://api.iconify.design/logos/go.svg" loading="lazy" alt="">Go (Golang)</span>
+            <span class="pill"><img src="https://api.iconify.design/logos/dart.svg" loading="lazy" alt="">Dart</span>
+            <span class="pill"><img src="https://api.iconify.design/vscode-icons/file-type-sql.svg" loading="lazy" alt="">SQL</span>
+            <span class="pill"><img src="https://api.iconify.design/logos/javascript.svg" loading="lazy" alt="">JavaScript</span>
+            <span class="pill"><img src="https://api.iconify.design/logos/java.svg" loading="lazy" alt="">Java</span>
+            <span class="pill"><img src="https://api.iconify.design/logos/python.svg" loading="lazy" alt="">Python</span>
+          </div>
         </div>
-    </footer>
+        <div>
+          <div class="scat">Backend Development</div>
+          <div style="display:flex;flex-wrap:wrap;gap:8px">
+            <span class="pill"><img src="https://api.iconify.design/logos/go.svg" loading="lazy" alt="">Go</span>
+            <span class="pill"><img src="https://api.iconify.design/ri/code-box-line.svg?color=var(--t0)" loading="lazy" style="filter: var(--icon-filter)" alt="">REST APIs</span>
+            <span class="pill"><img src="https://api.iconify.design/ri/terminal-line.svg?color=var(--t0)" loading="lazy" style="filter: var(--icon-filter)" alt="">gRPC</span>
+            <span class="pill"><img src="https://api.iconify.design/logos/graphql.svg" loading="lazy" alt="">GraphQL</span>
+            <span class="pill"><img src="https://api.iconify.design/ri/swap-line.svg?color=var(--t0)" loading="lazy" style="filter: var(--icon-filter)" alt="">WebSockets</span>
+            <span class="pill"><img src="https://api.iconify.design/ri/shield-keyhole-line.svg?color=var(--t0)" loading="lazy" style="filter: var(--icon-filter)" alt="">Authentication &amp; Authorization</span>
+            <span class="pill"><img src="https://api.iconify.design/ri/shield-user-line.svg?color=var(--t0)" loading="lazy" style="filter: var(--icon-filter)" alt="">JWT</span>
+            <span class="pill"><img src="https://api.iconify.design/ri/lock-password-line.svg?color=var(--t0)" loading="lazy" style="filter: var(--icon-filter)" alt="">OAuth 2.0</span>
+            <span class="pill"><img src="https://api.iconify.design/ri/settings-3-line.svg?color=var(--t0)" loading="lazy" style="filter: var(--icon-filter)" alt="">Middleware</span>
+            <span class="pill"><img src="https://api.iconify.design/ri/mind-map.svg?color=var(--t0)" loading="lazy" style="filter: var(--icon-filter)" alt="">API Design</span>
+            <span class="pill"><img src="https://api.iconify.design/ri/play-list-add-line.svg?color=var(--t0)" loading="lazy" style="filter: var(--icon-filter)" alt="">Background Workers</span>
+          </div>
+        </div>
+        <div>
+          <div class="scat">Frontend &amp; Mobile</div>
+          <div style="display:flex;flex-wrap:wrap;gap:8px">
+            <span class="pill"><img src="https://api.iconify.design/logos/flutter.svg" loading="lazy" alt="">Flutter</span>
+            <span class="pill"><img src="https://api.iconify.design/logos/firebase.svg" loading="lazy" alt="">Firebase</span>
+            <span class="pill"><img src="https://api.iconify.design/ri/shape-line.svg?color=var(--t0)" loading="lazy" style="filter: var(--icon-filter)" alt="">Riverpod</span>
+          </div>
+        </div>
+        <div>
+          <div class="scat">Databases</div>
+          <div style="display:flex;flex-wrap:wrap;gap:8px">
+            <span class="pill"><img src="https://api.iconify.design/logos/postgresql.svg" loading="lazy" alt="">PostgreSQL</span>
+            <span class="pill"><img src="https://api.iconify.design/logos/mongodb-icon.svg" loading="lazy" alt="">MongoDB</span>
+            <span class="pill"><img src="https://api.iconify.design/logos/redis.svg" loading="lazy" alt="">Redis</span>
+            <span class="pill"><img src="https://api.iconify.design/vscode-icons/file-type-sql.svg" loading="lazy" alt="">SQL</span>
+            <span class="pill"><img src="https://api.iconify.design/logos/firebase.svg" loading="lazy" alt="">Firebase Firestore</span>
+            <span class="pill"><img src="https://api.iconify.design/logos/firebase.svg" loading="lazy" alt="">Firebase Realtime Database</span>
+          </div>
+        </div>
+        <div>
+          <div class="scat">Software Engineering</div>
+          <div style="display:flex;flex-wrap:wrap;gap:8px">
+            <span class="pill"><img src="https://api.iconify.design/ri/node-tree.svg?color=var(--t0)" loading="lazy" style="filter: var(--icon-filter)" alt="">Clean Architecture</span>
+            <span class="pill"><img src="https://api.iconify.design/ri/stack-line.svg?color=var(--t0)" loading="lazy" style="filter: var(--icon-filter)" alt="">Layered Architecture</span>
+            <span class="pill"><img src="https://api.iconify.design/ri/git-merge-line.svg?color=var(--t0)" loading="lazy" style="filter: var(--icon-filter)" alt="">Repository Pattern</span>
+            <span class="pill"><img src="https://api.iconify.design/ri/flow-chart.svg?color=var(--t0)" loading="lazy" style="filter: var(--icon-filter)" alt="">SOLID Principles</span>
+            <span class="pill"><img src="https://api.iconify.design/ri/organization-chart.svg?color=var(--t0)" loading="lazy" style="filter: var(--icon-filter)" alt="">Design Patterns</span>
+            <span class="pill"><img src="https://api.iconify.design/ri/building-line.svg?color=var(--t0)" loading="lazy" style="filter: var(--icon-filter)" alt="">Domain-Driven Design (DDD)</span>
+            <span class="pill"><img src="https://api.iconify.design/ri/braces-line.svg?color=var(--t0)" loading="lazy" style="filter: var(--icon-filter)" alt="">Object-Oriented Programming</span>
+            <span class="pill"><img src="https://api.iconify.design/ri/refresh-line.svg?color=var(--t0)" loading="lazy" style="filter: var(--icon-filter)" alt="">SDLC</span>
+          </div>
+        </div>
+        <div>
+          <div class="scat">System Design</div>
+          <div style="display:flex;flex-wrap:wrap;gap:8px">
+            <span class="pill"><img src="https://api.iconify.design/ri/speed-up-line.svg?color=var(--t0)" loading="lazy" style="filter: var(--icon-filter)" alt="">Scalability</span>
+            <span class="pill"><img src="https://api.iconify.design/ri/database-line.svg?color=var(--t0)" loading="lazy" style="filter: var(--icon-filter)" alt="">Caching</span>
+            <span class="pill"><img src="https://api.iconify.design/ri/git-commit-line.svg?color=var(--t0)" loading="lazy" style="filter: var(--icon-filter)" alt="">Load Balancing</span>
+            <span class="pill"><img src="https://api.iconify.design/ri/notification-line.svg?color=var(--t0)" loading="lazy" style="filter: var(--icon-filter)" alt="">Event-Driven Architecture</span>
+            <span class="pill"><img src="https://api.iconify.design/ri/layout-grid-line.svg?color=var(--t0)" loading="lazy" style="filter: var(--icon-filter)" alt="">Microservices</span>
+            <span class="pill"><img src="https://api.iconify.design/ri/server-line.svg?color=var(--t0)" loading="lazy" style="filter: var(--icon-filter)" alt="">Distributed Systems</span>
+            <span class="pill"><img src="https://api.iconify.design/ri/lock-2-line.svg?color=var(--t0)" loading="lazy" style="filter: var(--icon-filter)" alt="">API Gateway</span>
+            <span class="pill"><img src="https://api.iconify.design/ri/mail-send-line.svg?color=var(--t0)" loading="lazy" style="filter: var(--icon-filter)" alt="">Message Queues</span>
+            <span class="pill"><img src="https://api.iconify.design/ri/repeat-2-line.svg?color=var(--t0)" loading="lazy" style="filter: var(--icon-filter)" alt="">CQRS</span>
+            <span class="pill"><img src="https://api.iconify.design/ri/history-line.svg?color=var(--t0)" loading="lazy" style="filter: var(--icon-filter)" alt="">Event Sourcing</span>
+            <span class="pill"><img src="https://api.iconify.design/ri/shield-check-line.svg?color=var(--t0)" loading="lazy" style="filter: var(--icon-filter)" alt="">High Availability</span>
+          </div>
+        </div>
+        <div>
+          <div class="scat">AI Engineering</div>
+          <div style="display:flex;flex-wrap:wrap;gap:8px">
+            <span class="pill"><img src="https://api.iconify.design/simple-icons/openai.svg?color=var(--t0)" loading="lazy" style="filter: var(--icon-filter)" alt="">LLM APIs</span>
+            <span class="pill"><img src="https://api.iconify.design/ri/brain-line.svg?color=var(--t0)" loading="lazy" style="filter: var(--icon-filter)" alt="">Prompt Engineering</span>
+            <span class="pill"><img src="https://api.iconify.design/ri/terminal-box-line.svg?color=var(--t0)" loading="lazy" style="filter: var(--icon-filter)" alt="">Function Calling</span>
+            <span class="pill"><img src="https://api.iconify.design/ri/cpu-line.svg?color=var(--t0)" loading="lazy" style="filter: var(--icon-filter)" alt="">Embeddings</span>
+            <span class="pill"><img src="https://api.iconify.design/ri/database-2-line.svg?color=var(--t0)" loading="lazy" style="filter: var(--icon-filter)" alt="">Vector Databases</span>
+            <span class="pill"><img src="https://api.iconify.design/ri/search-eye-line.svg?color=var(--t0)" loading="lazy" style="filter: var(--icon-filter)" alt="">Retrieval-Augmented Generation (RAG)</span>
+            <span class="pill"><img src="https://api.iconify.design/ri/robot-line.svg?color=var(--t0)" loading="lazy" style="filter: var(--icon-filter)" alt="">AI Agents</span>
+            <span class="pill"><img src="https://api.iconify.design/ri/settings-6-line.svg?color=var(--t0)" loading="lazy" style="filter: var(--icon-filter)" alt="">AI Workflow Automation</span>
+          </div>
+        </div>
+        <div>
+          <div class="scat">DevOps &amp; Cloud</div>
+          <div style="display:flex;flex-wrap:wrap;gap:8px">
+            <span class="pill"><img src="https://api.iconify.design/logos/docker-icon.svg" loading="lazy" alt="">Docker</span>
+            <span class="pill"><img src="https://api.iconify.design/logos/kubernetes.svg" loading="lazy" alt="">Kubernetes</span>
+            <span class="pill"><img src="https://api.iconify.design/logos/aws.svg" loading="lazy" alt="">AWS</span>
+            <span class="pill"><img src="https://api.iconify.design/logos/linux-tux.svg" loading="lazy" alt="">Linux</span>
+            <span class="pill"><img src="https://api.iconify.design/logos/nginx.svg" loading="lazy" alt="">Nginx</span>
+            <span class="pill"><img src="https://api.iconify.design/ri/loop-left-line.svg?color=var(--t0)" loading="lazy" style="filter: var(--icon-filter)" alt="">CI/CD</span>
+            <span class="pill"><img src="https://api.iconify.design/logos/github-actions.svg" loading="lazy" alt="">GitHub Actions</span>
+            <span class="pill"><img src="https://api.iconify.design/ri/dashboard-3-line.svg?color=var(--t0)" loading="lazy" style="filter: var(--icon-filter)" alt="">Monitoring</span>
+          </div>
+        </div>
+        <div>
+          <div class="scat">Testing</div>
+          <div style="display:flex;flex-wrap:wrap;gap:8px">
+            <span class="pill"><img src="https://api.iconify.design/ri/test-tube-line.svg?color=var(--t0)" loading="lazy" style="filter: var(--icon-filter)" alt="">Unit Testing</span>
+            <span class="pill"><img src="https://api.iconify.design/ri/test-tube-fill.svg?color=var(--t0)" loading="lazy" style="filter: var(--icon-filter)" alt="">Integration Testing</span>
+            <span class="pill"><img src="https://api.iconify.design/ri/code-box-line.svg?color=var(--t0)" loading="lazy" style="filter: var(--icon-filter)" alt="">API Testing</span>
+            <span class="pill"><img src="https://api.iconify.design/ri/speed-up-line.svg?color=var(--t0)" loading="lazy" style="filter: var(--icon-filter)" alt="">Performance Testing</span>
+          </div>
+        </div>
+        <div>
+          <div class="scat">Developer Tools</div>
+          <div style="display:flex;flex-wrap:wrap;gap:8px">
+            <span class="pill"><img src="https://api.iconify.design/logos/git-icon.svg" loading="lazy" alt="">Git</span>
+            <span class="pill"><img src="https://api.iconify.design/simple-icons/github.svg?color=var(--t0)" loading="lazy" style="filter: var(--icon-filter)" alt="">GitHub</span>
+            <span class="pill"><img src="https://api.iconify.design/logos/postman-icon.svg" loading="lazy" alt="">Postman</span>
+            <span class="pill"><img src="https://api.iconify.design/logos/visual-studio-code.svg" loading="lazy" alt="">VS Code</span>
+            <span class="pill"><img src="https://api.iconify.design/logos/android-icon.svg" loading="lazy" alt="">Android Studio</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <script src="three-bg.js"></script>
-    <script src="script.js"></script>
+<div class="divider"></div>
+
+<!-- CERTIFICATIONS & EDUCATION SECTION -->
+<section id="certifications" class="anch section" style="background:var(--bg1)">
+  <div class="container">
+    <div class="eyebrow">Certifications &amp; Milestones</div>
+    <h2 class="sec-title">Academic <em>&amp; Credentials</em></h2>
+    <p class="sec-sub">Continuous professional coursework, certifications, and academic foundations</p>
+
+    <!-- Achievements Grid -->
+    <div class="sgrid ag" style="margin-bottom:1.85rem">
+
+      <!-- Academic info -->
+      <div class="ach">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:.6rem">
+          <div class="ach-icon-container"><img src="https://api.iconify.design/ri/bookmark-fill.svg" loading="lazy" style="width:16px;height:16px;display:block" alt=""></div>
+          <h4 style="font-family:var(--serif);font-size:.9rem;font-weight:700;color:var(--t0)">B.Tech in Computer Science</h4>
+        </div>
+        <p style="font-family:var(--serif);font-size:.78rem;font-weight:300;color:var(--t2);line-height:1.6">
+          <strong>Raj Kumar Goel Institute of Technology</strong> (Ghaziabad, UP)<br>
+          <em>June 2025 – June 2029</em><br>
+          Gaining solid foundations in data structures, algorithms, databases, and general software engineering practices.
+        </p>
+      </div>
+
+      <!-- Core intern milestone -->
+      <div class="ach">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:.6rem">
+          <div class="ach-icon-container"><img src="https://api.iconify.design/ri/trophy-fill.svg" loading="lazy" style="width:16px;height:16px;display:block" alt=""></div>
+          <h4 style="font-family:var(--serif);font-size:.9rem;font-weight:700;color:var(--t0)">MVC &amp; Clean Code Intern</h4>
+        </div>
+        <p style="font-family:var(--serif);font-size:.78rem;font-weight:300;color:var(--t2);line-height:1.6">
+          Shipped 20+ Flutter screens using robust reusable widgets and clean MVC paradigms at Infits. Integrated secure RESTful services in an Agile structure.
+        </p>
+      </div>
+
+      <!-- Engineering patterns milestone -->
+      <div class="ach">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:.6rem">
+          <div class="ach-icon-container"><img src="https://api.iconify.design/ri/code-box-fill.svg" loading="lazy" style="width:16px;height:16px;display:block" alt=""></div>
+          <h4 style="font-family:var(--serif);font-size:.9rem;font-weight:700;color:var(--t0)">System Architecture</h4>
+        </div>
+        <p style="font-family:var(--serif);font-size:.78rem;font-weight:300;color:var(--t2);line-height:1.6">
+          Actively building production-inspired backend systems using Go standard-library routers, Drizzle ORM schemas, and isolated container orchestration.
+        </p>
+      </div>
+
+    </div>
+
+    <!-- Coursework / Certifications details -->
+    <div class="card up" style="padding:1.8rem">
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:1.1rem;padding-bottom:.85rem;border-bottom:1px solid var(--line)">
+        <div class="ach-icon-container"><img src="https://api.iconify.design/ri/file-paper-2-fill.svg" loading="lazy" style="width:16px;height:16px;display:block" alt=""></div>
+        <h4 style="font-family:var(--serif);font-size:1.05rem;font-weight:900;color:var(--t0)">Credentials &amp; Job Simulations</h4>
+      </div>
+      <div class="cert-grid">
+        <div class="cert-row"><span class="cert-dot"></span>Software Engineering Job Simulation<span class="cert-org">JPMorgan Chase</span></div>
+        <div class="cert-row"><span class="cert-dot"></span>Data Analytics Job Simulation<span class="cert-org">Deloitte Australia</span></div>
+        <div class="cert-row"><span class="cert-dot"></span>Introduction to Agent Skills<span class="cert-org">Anthropic Academy</span></div>
+        <div class="cert-row"><span class="cert-dot"></span>Train &amp; Manage ML Model with Azure<span class="cert-org">Microsoft</span></div>
+        <div class="cert-row"><span class="cert-dot"></span>Understand Data Science for ML<span class="cert-org">Microsoft</span></div>
+        <div class="cert-row"><span class="cert-dot"></span>Python for Data Science<span class="cert-org">IBM</span></div>
+        <div class="cert-row" style="border-bottom:none"><span class="cert-dot"></span>GenAI Powered Data Analytics Simulation<span class="cert-org">Tata</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CONTACT SECTION -->
+<section id="contact" class="anch section" style="background:var(--bg1);text-align:center;overflow:hidden">
+  <div class="bg-lines"></div>
+  <div class="orb" style="width:420px;height:420px;top:50%;left:50%;transform:translate(-50%,-50%)"></div>
+  <div class="container">
+    <div class="up">
+      <div class="eyebrow" style="justify-content:center">Contact</div>
+      <h2 style="font-family:var(--serif);font-size:clamp(1.8rem,5vw,3.2rem);font-weight:900;line-height:1.08;letter-spacing:-.03em;color:var(--t0);margin-bottom:.75rem">
+        Initialize<br><em style="font-style:italic;color:var(--accent)">Connection.</em>
+      </h2>
+      <p style="font-family:var(--serif);font-size:.82rem;font-weight:300;color:var(--t2);line-height:1.7;max-width:400px;margin:0 auto 2rem">
+        Always open to discussing software engineering roles, backend API deployments, and mobile application integrations. Let's execute a handshake.
+      </p>
+
+      <!-- SOCIAL ICONS -->
+      <div class="contact-icons">
+        <a href="https://github.com/raaj2493" target="_blank" rel="noopener noreferrer" class="hero-social-link" aria-label="GitHub">
+          <img src="https://api.iconify.design/skill-icons/github-dark.svg" alt="GitHub">
+        </a>
+        <a href="https://www.linkedin.com/in/rajgiri2493" target="_blank" rel="noopener noreferrer" class="hero-social-link" aria-label="LinkedIn">
+          <img src="https://api.iconify.design/devicon/linkedin.svg" alt="LinkedIn">
+        </a>
+        <a href="mailto:raj.ash2493@gmail.com" class="hero-social-link" aria-label="Email Me">
+          <img src="https://api.iconify.design/logos/google-gmail.svg" alt="Gmail">
+        </a>
+        <a href="https://ashutosh-giri-resume.vercel.app" target="_blank" rel="noopener noreferrer" class="hero-social-link" aria-label="Portfolio">
+          <img src="https://api.iconify.design/ri/global-line.svg?color=white" class="inv-light" alt="Portfolio">
+        </a>
+      </div>
+
+      <div style="height:1px;background:var(--line);margin:0 auto 1.5rem;max-width:320px"></div>
+      <p style="font-family:var(--mono);font-size:.6rem;font-weight:600;letter-spacing:.2em;color:var(--t3);text-transform:uppercase">
+        © <span id="current-year">2026</span> Ashutosh Giri. End of File.
+      </p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<script src="script.js"></script>
 </body>
-
 </html>
