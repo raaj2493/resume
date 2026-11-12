@@ -177,100 +177,110 @@
   <div class="container">
     <div class="eyebrow">Projects</div>
     <h2 class="sec-title">Deployed <em>Engineering</em> Solutions</h2>
-    <p class="sec-sub">Production backends, database engines, and cross-platform mobile systems</p>
+    <p class="sec-sub">Full-stack marketplace systems, intelligent matching engines, and market data intelligence</p>
 
-    <div class="sgrid pg">
+    <div class="sgrid pg" style="grid-template-columns:1fr">
 
-      <!-- TaskFlow Project -->
-      <div class="card" style="padding:0;overflow:hidden">
-        <div class="pimg" style="height:160px"><img src="project-taskflow.png" alt="TaskFlow" loading="lazy" width="800" height="450"><div class="pimg-grad"></div></div>
-        <div style="padding:1.25rem">
-          <div class="card-header">
-            <h3 style="font-family:var(--serif);font-size:.85rem;font-weight:700;color:var(--t0);line-height:1.4">TaskFlow: Project Management Backend (In Progress)</h3>
-            <div class="card-header-links">
-              <a href="https://github.com/raaj2493" target="_blank" rel="noopener noreferrer" class="ib ib-sm" aria-label="GitHub"><img src="https://api.iconify.design/ri/github-line.svg" style="width:12px;height:12px" alt=""></a>
+      <!-- KrishiSetu Project -->
+      <div class="card" style="padding:0;overflow:hidden;max-width:860px;margin:0 auto;width:100%">
+        <div style="padding:2rem 2rem 0">
+          <div style="display:flex;align-items:center;gap:10px;margin-bottom:1rem">
+            <span style="font-size:1.5rem">🌾</span>
+            <div>
+              <div class="card-header" style="margin-bottom:4px">
+                <h3 style="font-family:var(--serif);font-size:1.05rem;font-weight:700;color:var(--t0);line-height:1.3">KrishiSetu — Intelligent Agricultural Marketplace</h3>
+                <div class="card-header-links" style="gap:8px">
+                  <a href="https://krishisetuio.vercel.app" target="_blank" rel="noopener noreferrer" class="ib ib-sm" aria-label="Live Demo" title="Live Application">
+                    <img src="https://api.iconify.design/ri/external-link-line.svg" style="width:12px;height:12px" alt="Live">
+                  </a>
+                  <a href="https://github.com/raaj2493/KrishiSetu" target="_blank" rel="noopener noreferrer" class="ib ib-sm" aria-label="GitHub">
+                    <img src="https://api.iconify.design/ri/github-line.svg" style="width:12px;height:12px" alt="">
+                  </a>
+                </div>
+              </div>
+              <div style="display:flex;flex-wrap:wrap;gap:6px;align-items:center">
+                <span style="font-family:var(--mono);font-size:.55rem;font-weight:600;letter-spacing:.08em;color:var(--accent);background:color-mix(in srgb,var(--accent) 12%,transparent);padding:2px 8px;border-radius:20px;border:1px solid color-mix(in srgb,var(--accent) 25%,transparent)">SMART INDIA HACKATHON 2026</span>
+                <span style="font-family:var(--mono);font-size:.55rem;font-weight:600;letter-spacing:.08em;color:#22c55e;background:color-mix(in srgb,#22c55e 12%,transparent);padding:2px 8px;border-radius:20px;border:1px solid color-mix(in srgb,#22c55e 25%,transparent)">COMPLETED &amp; DEPLOYED</span>
+              </div>
             </div>
           </div>
-          <div class="tag-row">
+
+          <p style="font-family:var(--serif);font-size:.82rem;font-weight:300;color:var(--t2);line-height:1.75;margin-bottom:1.25rem">
+            An intelligent agricultural marketplace bridging the discovery and information gap between farmers and buyers. Farmers list produce, buyers publish procurement demands, and an <strong style="color:var(--t0);font-weight:600">explainable weighted matching engine</strong> evaluates supply-demand compatibility — scoring each pair across five criteria and generating human-readable explanations. Integrated with government open-data market-price intelligence (AGMARKNET) for informed decision-making.
+          </p>
+
+          <div class="tag-row" style="margin-bottom:1.5rem">
             <span class="tag">Go</span>
+            <span class="tag">Gin</span>
+            <span class="tag">GORM</span>
             <span class="tag">PostgreSQL</span>
-            <span class="tag">Docker</span>
-            <span class="tag">REST APIs</span>
+            <span class="tag">Vue.js</span>
+            <span class="tag">Tailwind CSS</span>
             <span class="tag">JWT</span>
-          </div>
-          <div style="display:flex;flex-direction:column;gap:4px">
-            <div class="bul">Designing a production-inspired project management platform (Jira/Trello alternative) applying Clean Architecture and Repository Pattern.</div>
-            <div class="bul">Implementing authentication, authorization, custom middleware, and standard-library Go RESTful endpoints.</div>
-            <div class="bul">Containerizing PostgreSQL database and backend service layers using Docker Compose for seamless development environments.</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- URL Shortener API -->
-      <div class="card" style="padding:0;overflow:hidden">
-        <div class="pimg" style="height:160px"><img src="project-urlshortener.png" alt="URL Shortener API" loading="lazy" width="800" height="450"><div class="pimg-grad"></div></div>
-        <div style="padding:1.25rem">
-          <div class="card-header">
-            <h3 style="font-family:var(--serif);font-size:.85rem;font-weight:700;color:var(--t0);line-height:1.4">URL Shortener API Service</h3>
-            <div class="card-header-links">
-              <a href="https://github.com/raaj2493/URL-Shortner" target="_blank" rel="noopener noreferrer" class="ib ib-sm" aria-label="GitHub"><img src="https://api.iconify.design/ri/github-line.svg" style="width:12px;height:12px" alt=""></a>
-            </div>
-          </div>
-          <div class="tag-row">
-            <span class="tag">Node.js</span>
-            <span class="tag">PostgreSQL</span>
-            <span class="tag">Drizzle ORM</span>
-            <span class="tag">Express</span>
-          </div>
-          <div style="display:flex;flex-direction:column;gap:4px">
-            <div class="bul">A fast and secure URL shortener backend mapping short codes to full redirect URLs.</div>
-            <div class="bul">Configured using PostgreSQL and Drizzle ORM to perform robust relational database queries with minimal latency.</div>
+            <span class="tag">REST APIs</span>
+            <span class="tag">Vercel</span>
+            <span class="tag">Render</span>
+            <span class="tag">Neon</span>
           </div>
         </div>
-      </div>
 
-      <!-- Habit Tracking App -->
-      <div class="card" style="padding:0;overflow:hidden">
-        <div class="pimg" style="height:160px"><img src="project-habittracker.png" alt="Habit Tracking App" loading="lazy" width="800" height="450"><div class="pimg-grad"></div></div>
-        <div style="padding:1.25rem">
-          <div class="card-header">
-            <h3 style="font-family:var(--serif);font-size:.85rem;font-weight:700;color:var(--t0);line-height:1.4">Habit Tracking Mobile App</h3>
-            <div class="card-header-links">
-              <a href="https://github.com/raaj2493" target="_blank" rel="noopener noreferrer" class="ib ib-sm" aria-label="GitHub"><img src="https://api.iconify.design/ri/github-line.svg" style="width:12px;height:12px" alt=""></a>
+        <!-- Feature highlights grid -->
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:0;border-top:1px solid var(--line)">
+
+          <div style="padding:1.25rem 1.5rem;border-right:1px solid var(--line);border-bottom:1px solid var(--line)">
+            <div style="font-family:var(--mono);font-size:.6rem;font-weight:700;letter-spacing:.1em;color:var(--accent);margin-bottom:.5rem">👨‍🌾 FARMER MARKETPLACE</div>
+            <div style="display:flex;flex-direction:column;gap:4px">
+              <div class="bul">Farmer registration, profiles &amp; listing management</div>
+              <div class="bul">List crop, quantity, grade, price &amp; location</div>
+              <div class="bul">Discover matching buyer demands</div>
             </div>
           </div>
-          <div class="tag-row">
-            <span class="tag">Flutter</span>
-            <span class="tag">Firebase</span>
-            <span class="tag">Riverpod</span>
-            <span class="tag">Charts</span>
-          </div>
-          <div style="display:flex;flex-direction:column;gap:4px">
-            <div class="bul">Cross-platform mobile application featuring interactive streaks and habit logging dashboards.</div>
-            <div class="bul">Designed tile-based grid charts for daily progress visualizations, syncing user records securely with Firebase.</div>
-          </div>
-        </div>
-      </div>
 
-      <!-- Real-time Chat App -->
-      <div class="card" style="padding:0;overflow:hidden">
-        <div class="pimg" style="height:160px"><img src="project-chatapp.png" alt="Real-time Chat App" loading="lazy" width="800" height="450"><div class="pimg-grad"></div></div>
-        <div style="padding:1.25rem">
-          <div class="card-header">
-            <h3 style="font-family:var(--serif);font-size:.85rem;font-weight:700;color:var(--t0);line-height:1.4">Real-time Messaging Application</h3>
-            <div class="card-header-links">
-              <a href="https://github.com/raaj2493" target="_blank" rel="noopener noreferrer" class="ib ib-sm" aria-label="GitHub"><img src="https://api.iconify.design/ri/github-line.svg" style="width:12px;height:12px" alt=""></a>
+          <div style="padding:1.25rem 1.5rem;border-right:1px solid var(--line);border-bottom:1px solid var(--line)">
+            <div style="font-family:var(--mono);font-size:.6rem;font-weight:700;letter-spacing:.1em;color:var(--accent);margin-bottom:.5rem">🏢 BUYER MARKETPLACE</div>
+            <div style="display:flex;flex-direction:column;gap:4px">
+              <div class="bul">Buyer registration, profiles &amp; demand publishing</div>
+              <div class="bul">Specify commodity, quantity, target price &amp; date</div>
+              <div class="bul">Discover compatible farmer listings</div>
             </div>
           </div>
-          <div class="tag-row">
-            <span class="tag">Flutter</span>
-            <span class="tag">Firebase</span>
-            <span class="tag">FCM</span>
+
+          <div style="padding:1.25rem 1.5rem;border-bottom:1px solid var(--line)">
+            <div style="font-family:var(--mono);font-size:.6rem;font-weight:700;letter-spacing:.1em;color:var(--accent);margin-bottom:.5rem">🤝 MATCHING ENGINE</div>
+            <div style="display:flex;flex-direction:column;gap:4px">
+              <div class="bul">5-criteria weighted scoring (commodity, quantity, location, price, grade)</div>
+              <div class="bul">Human-readable match explanations (Excellent / Good / Possible / Weak)</div>
+              <div class="bul">Commodity mismatch hard constraint</div>
+            </div>
           </div>
-          <div style="display:flex;flex-direction:column;gap:4px">
-            <div class="bul">Instant message streaming app featuring customizable user profiles and active channels.</div>
-            <div class="bul">Configured Firebase Cloud Messaging (FCM) to trigger background push notifications and offline indicators.</div>
+
+          <div style="padding:1.25rem 1.5rem;border-right:1px solid var(--line)">
+            <div style="font-family:var(--mono);font-size:.6rem;font-weight:700;letter-spacing:.1em;color:var(--accent);margin-bottom:.5rem">💰 MARKET PRICE INTEL</div>
+            <div style="display:flex;flex-direction:column;gap:4px">
+              <div class="bul">AGMARKNET open-data integration</div>
+              <div class="bul">Min / modal / max prices with regional comparison</div>
+              <div class="bul">Data freshness transparency</div>
+            </div>
           </div>
+
+          <div style="padding:1.25rem 1.5rem;border-right:1px solid var(--line)">
+            <div style="font-family:var(--mono);font-size:.6rem;font-weight:700;letter-spacing:.1em;color:var(--accent);margin-bottom:.5rem">📋 OFFERS &amp; ORDERS</div>
+            <div style="display:flex;flex-direction:column;gap:4px">
+              <div class="bul">Buyer-initiated offer workflow</div>
+              <div class="bul">Farmer accept / reject controls</div>
+              <div class="bul">Role-specific order management views</div>
+            </div>
+          </div>
+
+          <div style="padding:1.25rem 1.5rem">
+            <div style="font-family:var(--mono);font-size:.6rem;font-weight:700;letter-spacing:.1em;color:var(--accent);margin-bottom:.5rem">🔐 AUTH &amp; SECURITY</div>
+            <div style="display:flex;flex-direction:column;gap:4px">
+              <div class="bul">Separate farmer &amp; buyer JWT auth flows</div>
+              <div class="bul">Protected API endpoints</div>
+              <div class="bul">Backend ownership &amp; authorization checks</div>
+            </div>
+          </div>
+
         </div>
       </div>
 
