@@ -114,11 +114,20 @@
     headerActions.append(jdToggleBtn, resetBtn, closeBtn);
     header.append(headerId, headerActions);
 
-    // Quick Questions
+    // Quick Questions (Compact bar + collapsible drawer above input)
     const quickWrap = createEl("div", "ai-quick-wrap");
+    const quickBar = createEl("div", "ai-quick-bar");
+    const quickToggle = createEl("button", "ai-quick-toggle", "Prompts ▴");
+    quickToggle.type = "button";
+    const quickStrip = createEl("div", "ai-quick-strip");
+    quickBar.append(quickToggle, quickStrip);
+
+    const quickDrawer = createEl("div", "ai-quick-drawer");
     const quickTabs = createEl("div", "ai-quick-tabs");
     const quickChips = createEl("div", "ai-quick-chips");
-    quickWrap.append(quickTabs, quickChips);
+    quickDrawer.append(quickTabs, quickChips);
+
+    quickWrap.append(quickBar, quickDrawer);
 
     // Messages
     const msgList = createEl("div", "ai-messages");
@@ -162,7 +171,7 @@
 
     jdView.append(jdIntro, jdTextarea, jdActions, jdResult);
 
-    panel.append(header, quickWrap, msgList, inputWrap, jdView);
+    panel.append(header, msgList, quickWrap, inputWrap, jdView);
     document.body.append(panel);
 
     return {
@@ -171,6 +180,9 @@
       resetBtn,
       closeBtn,
       quickWrap,
+      quickToggle,
+      quickStrip,
+      quickDrawer,
       quickTabs,
       quickChips,
       msgList,
@@ -249,10 +261,31 @@
       scrollToBottom();
     }
 
+    function setDrawerOpen(open) {
+      ui.quickDrawer.classList.toggle("open", open);
+      ui.quickToggle.classList.toggle("open", open);
+      ui.quickToggle.textContent = open ? "Prompts ▾" : "Prompts ▴";
+    }
+
     function renderQuickQuestions() {
+      ui.quickStrip.innerHTML = "";
       ui.quickTabs.innerHTML = "";
       ui.quickChips.innerHTML = "";
       if (!categories.length) return;
+
+      // Single-line horizontal strip of top prompts (1 from each of first 3 categories)
+      categories.slice(0, 3).forEach((cat) => {
+        if (!cat.questions || !cat.questions.length) return;
+        const q = cat.questions[0];
+        const chip = createEl("button", "ai-qchip", q);
+        chip.type = "button";
+        chip.addEventListener("click", () => {
+          if (state.mode !== "chat") setMode("chat");
+          setDrawerOpen(false);
+          sendUserMessage(q);
+        });
+        ui.quickStrip.append(chip);
+      });
 
       categories.forEach((cat, idx) => {
         const tab = createEl(
@@ -275,11 +308,16 @@
         chip.type = "button";
         chip.addEventListener("click", () => {
           if (state.mode !== "chat") setMode("chat");
+          setDrawerOpen(false);
           sendUserMessage(q);
         });
         ui.quickChips.append(chip);
       });
     }
+
+    ui.quickToggle.addEventListener("click", () => {
+      setDrawerOpen(!ui.quickDrawer.classList.contains("open"));
+    });
 
     function setOpen(open) {
       state.isOpen = open;

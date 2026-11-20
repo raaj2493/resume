@@ -116,29 +116,79 @@
   background: var(--accent-lo);
 }
 
-/* Quick Questions Bar */
+/* Quick Questions Bar (Compact & Collapsible) */
 .ai-quick-wrap {
   background: var(--bg1);
-  border-bottom: 1px solid var(--line);
-  padding: 0.65rem 0.9rem;
+  border-top: 1px solid var(--line);
+  padding: 0.45rem 0.75rem;
+}
+
+.ai-quick-bar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.ai-quick-toggle {
+  font-family: var(--mono);
+  font-size: 0.56rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 4px 9px;
+  border-radius: 6px;
+  border: 1px solid var(--line2);
+  background: var(--sfc2);
+  color: var(--t1);
+  cursor: pointer;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: border-color 0.2s, color 0.2s;
+}
+
+.ai-quick-toggle:hover,
+.ai-quick-toggle.open {
+  border-color: var(--accent);
+  color: var(--t0);
+}
+
+.ai-quick-strip {
+  display: flex;
+  gap: 5px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  flex: 1;
+}
+
+.ai-quick-strip::-webkit-scrollbar { display: none; }
+
+.ai-quick-drawer {
+  display: none;
+  margin-top: 0.5rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid var(--line);
+}
+
+.ai-quick-drawer.open {
+  display: block;
 }
 
 .ai-quick-tabs {
   display: flex;
-  gap: 6px;
+  gap: 5px;
   overflow-x: auto;
   scrollbar-width: none;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.45rem;
 }
 
 .ai-quick-tabs::-webkit-scrollbar { display: none; }
 
 .ai-qtab {
   font-family: var(--mono);
-  font-size: 0.56rem;
+  font-size: 0.54rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  padding: 3px 9px;
+  padding: 3px 8px;
   border-radius: 999px;
   border: 1px solid var(--line2);
   background: transparent;
@@ -159,28 +209,33 @@
   display: flex;
   flex-wrap: wrap;
   gap: 5px;
-  max-height: 76px;
+  max-height: 110px;
   overflow-y: auto;
 }
 
 .ai-qchip {
   font-family: var(--sans);
-  font-size: 0.68rem;
-  line-height: 1.3;
+  font-size: 0.66rem;
+  line-height: 1.25;
   text-align: left;
   padding: 4px 9px;
-  border-radius: 6px;
+  border-radius: 999px;
   border: 1px solid var(--line2);
   background: var(--sfc2);
   color: var(--t1);
   cursor: pointer;
-  transition: border-color 0.2s, color 0.2s, transform 0.15s;
+  white-space: nowrap;
+  transition: border-color 0.2s, color 0.2s;
+}
+
+.ai-quick-chips .ai-qchip {
+  white-space: normal;
+  border-radius: 6px;
 }
 
 .ai-qchip:hover {
   border-color: var(--accent);
   color: var(--t0);
-  transform: translateY(-1px);
 }
 
 /* Message List */
