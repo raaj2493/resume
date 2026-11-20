@@ -1,19 +1,73 @@
-
 {
   "personal_info": {
     "name": "Ashutosh Giri",
     "role": "Full Stack Software Engineer (Backend + AI Focus)",
-    "location": "India"
+    "location": "India",
+    "professional_summary": "Computer Science and Engineering student focused on backend engineering, AI engineering and building practical software systems. Works with Go, PostgreSQL, REST APIs and Flutter, with interests in scalable backend architectures, distributed systems and LLM-powered applications.",
+    "career_interests": [
+      "Backend Engineering",
+      "AI Engineering",
+      "Distributed Systems",
+      "System Design",
+      "Full Stack Development"
+    ]
   },
   "education": [
     {
       "institution": "Raj Kumar Goel Institute of Technology",
       "degree": "Bachelor of Technology",
       "field": "Computer Science and Engineering",
-      "location": "Ghaziabad, Uttar Pradesh",
+      "location": "Ghaziabad, Uttar Pradesh, India",
       "start_year": 2025,
       "end_year": 2029,
       "status": "Pursuing"
+    }
+  ],
+  "experience": [
+    {
+      "company": "Team Infits",
+      "role": "Flutter Developer Intern",
+      "employment_type": "Internship",
+      "start_date": "October 2025",
+      "end_date": "January 2026",
+      "status": "Completed",
+      "technologies": [
+        "Flutter",
+        "Dart",
+        "REST APIs",
+        "Firebase",
+        "Git",
+        "MVC Architecture"
+      ],
+      "description": "Worked as a Flutter Developer Intern, collaborating with UI/UX designers and backend developers to build and improve production-ready mobile application features.",
+      "responsibilities": [
+        "Collaborated with UI/UX designers and backend developers to deliver 20+ production-ready Flutter screens.",
+        "Developed reusable Flutter widgets using a structured MVC architecture.",
+        "Integrated 5+ REST APIs and Firebase services for user authentication and real-time data synchronization.",
+        "Optimized application responsiveness and performance across diverse devices.",
+        "Participated in an Agile development environment, including daily stand-ups and sprint planning.",
+        "Contributed 20+ Git commits during the internship."
+      ],
+      "achievements": [
+        {
+          "description": "Delivered 20+ production-ready Flutter screens."
+        },
+        {
+          "description": "Integrated 5+ REST APIs and Firebase services."
+        },
+        {
+          "description": "Reduced UI-related issues by approximately 25% through application performance and responsiveness improvements."
+        },
+        {
+          "description": "Contributed 20+ Git commits in an active development environment."
+        }
+      ],
+      "work_environment": [
+        "Agile Development",
+        "Team Collaboration",
+        "Daily Stand-ups",
+        "Sprint Planning"
+      ]
     }
   ],
   "skills": {
@@ -31,7 +85,7 @@
       "gRPC",
       "GraphQL",
       "WebSockets",
-      "Authentication & Authorization",
+      "Authentication and Authorization",
       "JWT",
       "OAuth 2.0",
       "Middleware",
@@ -59,7 +113,7 @@
       "Design Patterns",
       "Domain-Driven Design",
       "Object-Oriented Programming",
-      "SDLC"
+      "Software Development Life Cycle"
     ],
     "system_design": [
       "Scalability",
@@ -111,63 +165,167 @@
   "projects": [
     {
       "name": "KrishiSetu",
-      "description": "A digital agricultural marketplace connecting farmers and buyers.",
+      "tagline": "Digital Agricultural Marketplace",
+      "description": "A digital agricultural marketplace designed to connect farmers and buyers. The platform enables farmers to list agricultural products and buyers to discover products, make offers and place orders.",
+      "problem_statement": "Farmers and buyers need a digital platform that makes agricultural product discovery and direct interactions easier.",
+      "objective": "Build a platform that supports agricultural product listings, farmer-buyer interactions and access to mandi-related information.",
+      "status": "Completed",
+      "project_type": "Full Stack Web Application",
+      "technology_stack": {
+        "backend": {
+          "language": "Go",
+          "framework": "Gin",
+          "orm": "GORM",
+          "description": "The backend application and API logic are implemented in Go using the Gin web framework. GORM is used for database interaction.",
+          "responsibilities": [
+            "Backend application logic",
+            "HTTP API development",
+            "Database interaction",
+            "Farmer and buyer workflows",
+            "Product listing management",
+            "Offer and order workflows"
+          ]
+        },
+        "frontend": {
+          "deployment_platform": "Vercel",
+          "description": "The frontend is deployed on Vercel.",
+          "framework": null,
+          "language": null
+        },
+        "database": {
+          "primary_database": "PostgreSQL",
+          "database_provider": "Neon",
+          "description": "PostgreSQL is used as the relational database, hosted through Neon."
+        },
+        "infrastructure": {
+          "backend_hosting": "Render",
+          "frontend_hosting": "Vercel",
+          "containerization": "Docker"
+        }
+      },
+      "architecture": {
+        "application_type": "Full Stack Application",
+        "backend_architecture": "Go and Gin-based backend application",
+        "database_architecture": "PostgreSQL relational database",
+        "deployment_architecture": "Frontend deployed on Vercel, backend deployed on Render and database hosted on Neon",
+        "communication": "Frontend communicates with backend through HTTP APIs"
+      },
+      "features": [
+        {
+          "name": "Farmer Accounts",
+          "description": "Supports farmer accounts and farmer-specific platform functionality."
+        },
+        {
+          "name": "Buyer Accounts",
+          "description": "Supports buyer accounts and buyer-specific platform functionality."
+        },
+        {
+          "name": "Product Listings",
+          "description": "Allows farmers to create and manage agricultural product listings."
+        },
+        {
+          "name": "Offers",
+          "description": "Supports buyer offers on listed agricultural products."
+        },
+        {
+          "name": "Orders",
+          "description": "Supports order-related workflows between farmers and buyers."
+        },
+        {
+          "name": "Mandi Data Integration",
+          "description": "Integrates mandi-related agricultural market data."
+        },
+        {
+          "name": "Product Matching",
+          "description": "Includes product matching functionality to help connect relevant agricultural products with buyers."
+        },
+        {
+          "name": "Forecasting",
+          "description": "Includes forecasting functionality as part of the platform."
+        }
+      ],
+      "security": {
+        "password_hashing": "bcrypt",
+        "authentication": "JWT-based authentication",
+        "authorization": "Farmer and buyer role-based access",
+        "description": "Implements password hashing using bcrypt and JWT-based authentication."
+      },
       "technologies": [
         "Go",
         "Gin",
         "GORM",
         "PostgreSQL",
-        "Docker"
+        "Docker",
+        "JWT",
+        "bcrypt",
+        "Vercel",
+        "Render",
+        "Neon"
       ],
-      "features": [
-        "Farmer and buyer accounts",
-        "Product listings",
-        "Offers and orders",
-        "Mandi data integration",
-        "Product matching and forecasting"
+      "key_engineering_areas": [
+        "Backend API development",
+        "Relational database integration",
+        "Authentication and authorization",
+        "Role-based application workflows",
+        "Full stack application integration",
+        "Application deployment"
       ],
-      "status": "Completed",
       "github": "https://github.com/raaj2493/KrishiSetu"
     },
     {
       "name": "Areté",
-      "description": "A local-first productivity application focused on intentional focus sessions and personal accountability.",
+      "tagline": "Keep Your Word.",
+      "description": "A local-first productivity application focused on intentional focus sessions, distraction management and personal accountability. The application is designed to help users stay committed to their chosen focus sessions.",
+      "problem_statement": "Digital distractions make it difficult to maintain focus and follow through on personal commitments.",
+      "objective": "Build a calm, minimal productivity experience that encourages intentional work and accountability.",
+      "status": "In Progress",
+      "project_type": "Android Mobile Application",
+      "technology_stack": {
+        "frontend": {
+          "framework": "Flutter",
+          "language": "Dart",
+          "state_management": null
+        },
+        "backend": {
+          "type": "Local-first application",
+          "remote_backend": null,
+          "description": "The planned application architecture prioritizes local operation without requiring a traditional remote backend."
+        },
+        "database": {
+          "type": "SQLite",
+          "description": "Local database storage for application data."
+        }
+      },
+      "features": [
+        {
+          "name": "Focus Sessions",
+          "description": "Allows users to start intentional focus sessions."
+        },
+        {
+          "name": "Distraction Management",
+          "description": "Includes app-blocking functionality to restrict selected distracting applications during focus sessions."
+        },
+        {
+          "name": "Local Data Storage",
+          "description": "Stores application data locally using SQLite."
+        },
+        {
+          "name": "Personal Accountability",
+          "description": "Designed around helping users maintain commitments to their focus sessions."
+        }
+      ],
       "technologies": [
         "Flutter",
         "Dart",
         "SQLite"
       ],
-      "features": [
-        "Focus sessions",
-        "Distraction management",
-        "Local data storage"
-      ],
-      "status": "In Progress"
-    },
-    {
-      "name": "Edith",
-      "description": "A local-first personal knowledge management and second-brain system.",
-      "technologies": [
-        "Python",
-        "SQLite",
-        "FTS5"
-      ],
-      "features": [
-        "Note indexing",
-        "Full-text search",
-        "Knowledge retrieval"
-      ],
-      "status": "In Progress"
-    }
-  ],
-  "experience": [
-    {
-      "company": "Team Infits",
-      "role": "Flutter Developer Intern",
-      "employment_type": "Internship",
-      "start_date": "October 2025",
-      "end_date": "January 2026",
-      "status": "Completed"
+      "key_engineering_areas": [
+        "Mobile application development",
+        "Local-first application architecture",
+        "Local database management",
+        "Focus session management",
+        "Android application integration"
+      ]
     }
   ],
   "achievements": [],
@@ -176,5 +334,41 @@
     "portfolio": "https://ashutoshgiri.vercel.app/",
     "github": "https://github.com/raaj2493",
     "linkedin": "https://www.linkedin.com/in/rajgiri2493/"
+  },
+  "ai_grounding_instructions": {
+    "source_of_truth": "This candidate profile is the authoritative source for all candidate-related answers.",
+    "project_specific_technology_rules": [
+      "Always use the technology_stack section of the specific project when answering questions about that project's implementation.",
+      "Never infer a project's technology stack from the candidate's general skills list.",
+      "KrishiSetu backend is implemented in Go.",
+      "KrishiSetu framework is Gin.",
+      "KrishiSetu ORM is GORM.",
+      "KrishiSetu database is PostgreSQL.",
+      "KrishiSetu uses JWT-based authentication and bcrypt password hashing.",
+      "KrishiSetu backend is deployed on Render.",
+      "KrishiSetu frontend is deployed on Vercel.",
+      "KrishiSetu database is hosted on Neon.",
+      "Python is listed as a candidate programming language, but it is not the backend language used by KrishiSetu.",
+      "Never attribute a technology to a project unless that project's own technology_stack or technologies section explicitly documents it."
+    ],
+    "experience_rules": [
+      "Distinguish professional employment from personal and academic projects.",
+      "Do not present projects as professional work experience.",
+      "Do not invent internship responsibilities or achievements.",
+      "Do not invent years of experience."
+    ],
+    "knowledge_classification": {
+      "explicit_facts": "Information directly documented in this profile.",
+      "reasonable_inferences": "Conclusions logically supported by documented information. Clearly identify them as interpretations.",
+      "unknown_information": "Information not documented in this profile. Explicitly acknowledge when it is unavailable."
+    },
+    "honesty_rules": [
+      "Do not invent skills, project features, technologies, certifications, qualifications, metrics or achievements.",
+      "A technology appearing in the general skills list does not prove that it was used in a particular project.",
+      "Do not assume expertise from a listed skill.",
+      "Distinguish completed projects from projects in progress.",
+      "If asked which language, framework, database or infrastructure was used for a project, answer from that project's technology_stack.",
+      "If a specific detail is unavailable, say that it is not documented rather than guessing."
+    ]
   }
 }
