@@ -82,17 +82,6 @@
   }
 
   function buildUI() {
-    // 1. Floating Pill Trigger
-    const pill = createEl("button", "ai-pill");
-    pill.type = "button";
-    pill.setAttribute("aria-label", "Open Ashutosh's AI Companion");
-
-    const orb = createEl("span", "ai-orb");
-    const statusDot = createEl("span", "ai-status-dot");
-    statusDot.title = "AI Companion status";
-    const label = createEl("span", "ai-pill-label", "Ask my AI");
-    pill.append(orb, statusDot, label);
-
     // 2. Floating Chat Panel
     const panel = createEl("aside", "ai-panel");
     panel.setAttribute("aria-label", "AI Companion Chat");
@@ -100,7 +89,7 @@
     // Header
     const header = createEl("div", "ai-header");
     const headerId = createEl("div", "ai-header-id");
-    const headerOrb = createEl("span", "ai-orb ai-orb--sm");
+    const headerOrb = window.AIOrb.createMini(22);
     const headerMeta = createEl("div");
     headerMeta.append(
       createEl("div", "ai-header-title", "Ashutosh's AI"),
@@ -174,11 +163,9 @@
     jdView.append(jdIntro, jdTextarea, jdActions, jdResult);
 
     panel.append(header, quickWrap, msgList, inputWrap, jdView);
-    document.body.append(pill, panel);
+    document.body.append(panel);
 
     return {
-      pill,
-      statusDot,
       panel,
       jdToggleBtn,
       resetBtn,
@@ -201,6 +188,7 @@
   function init() {
     const ui = buildUI();
     const categories = window.AI_QUICK_QUESTIONS || [];
+    let orb = null;
 
     function scrollToBottom() {
       ui.msgList.scrollTop = ui.msgList.scrollHeight;
@@ -296,7 +284,8 @@
     function setOpen(open) {
       state.isOpen = open;
       ui.panel.classList.toggle("open", open);
-      ui.pill.classList.toggle("hidden", open);
+      orb.setHidden(open);
+      if (!open) orb.focus();
       if (open && state.mode === "chat") {
         setTimeout(() => ui.textarea.focus(), 200);
       }
@@ -430,7 +419,13 @@
     }
 
     // Event Bindings
-    ui.pill.addEventListener("click", () => setOpen(true));
+    orb = window.AIOrb.create({
+      size: 62,
+      label: "Ask my AI",
+      labelMode: "subtle",
+      ariaLabel: "Open Ashutosh's AI companion",
+      onClick: () => setOpen(true)
+    });
     ui.closeBtn.addEventListener("click", () => setOpen(false));
     ui.jdToggleBtn.addEventListener("click", () =>
       setMode(state.mode === "jd" ? "chat" : "jd")
@@ -507,8 +502,8 @@
 
     // Non-blocking health check for status dot
     window.AICompanionAPI.checkHealth()
-      .then(() => ui.statusDot.classList.remove("offline"))
-      .catch(() => ui.statusDot.classList.add("offline"));
+      .then(() => orb.setStatus("online"))
+      .catch(() => orb.setStatus("offline"));
   }
 
   if (document.readyState === "loading") {

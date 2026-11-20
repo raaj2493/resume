@@ -1,0 +1,579 @@
+/* =========================================================================
+   AI ORB — floating entry point for the AI companion
+   Monochrome glass sphere · internal light · orbital ring · pointer parallax
+   ========================================================================= */
+
+.aio {
+  --aio-size-base: 62px;
+  --aio-size: var(--aio-size-base);
+  --aio-edge: 1.75rem;
+  --aio-px: 0;              /* pointer vector, set by JS in [-1, 1] */
+  --aio-py: 0;
+  --aio-scale: 1;
+
+  position: fixed;
+  right: var(--aio-edge);
+  bottom: var(--aio-edge);
+  z-index: 300;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition:
+    opacity .45s ease,
+    transform .6s cubic-bezier(.22, 1, .36, 1),
+    visibility 0s linear 0s;
+}
+
+.aio:focus-visible { outline: none; }
+
+/* Intro state (removed by JS shortly after mount) */
+.aio.is-pre {
+  opacity: 0;
+  transform: translateY(14px) scale(.88);
+}
+
+/* Hidden while the chat panel is open */
+.aio.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateY(10px) scale(.6);
+  transition:
+    opacity .25s ease,
+    transform .35s cubic-bezier(.22, 1, .36, 1),
+    visibility 0s linear .35s;
+}
+
+/* ---------- Orb shell ---------- */
+
+.aio-orb {
+  position: relative;
+  width: var(--aio-size);
+  height: var(--aio-size);
+  flex-shrink: 0;
+  transform:
+    translate3d(calc(var(--aio-px) * 3px), calc(var(--aio-py) * 3px), 0)
+    scale(var(--aio-scale));
+  transition: transform .6s cubic-bezier(.22, 1, .36, 1);
+}
+
+.aio:hover,
+.aio:focus-visible { --aio-scale: 1.06; }
+
+.aio:active { --aio-scale: .95; }
+.aio:active .aio-orb { transition-duration: .15s; }
+
+.aio-float {
+  position: absolute;
+  inset: 0;
+  animation: aio-float 7s ease-in-out infinite;
+}
+
+/* ---------- Atmospheric halo ---------- */
+
+.aio-halo {
+  position: absolute;
+  inset: -70%;
+  z-index: 0;
+  border-radius: 50%;
+  pointer-events: none;
+  opacity: .75;
+  transition: opacity .6s ease, transform .7s cubic-bezier(.22, 1, .36, 1);
+}
+
+.aio-halo::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, .13) 0%,
+    rgba(255, 255, 255, .055) 24%,
+    rgba(255, 255, 255, .018) 42%,
+    transparent 60%
+  );
+  animation: aio-breathe 5.5s ease-in-out infinite;
+}
+
+.aio:hover .aio-halo,
+.aio:focus-visible .aio-halo {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+/* ---------- Sphere body ---------- */
+
+.aio-body {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  border-radius: 50%;
+  clip-path: circle(50% at 50% 50%);
+  isolation: isolate;
+}
+
+.aio-layer {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+/* Dark graphite glass */
+.aio-base {
+  background: radial-gradient(
+    130% 130% at 30% 22%,
+    #3b3b40 0%,
+    #1a1a1d 32%,
+    #0a0a0b 62%,
+    #030303 100%
+  );
+}
+
+/* Light gathering at the bottom of the glass (refraction) */
+.aio-caustic {
+  background: radial-gradient(
+    70% 55% at 50% 90%,
+    rgba(215, 215, 225, .2) 0%,
+    rgba(215, 215, 225, .06) 45%,
+    transparent 72%
+  );
+  animation: aio-caustic 5.5s ease-in-out infinite;
+}
+
+/* Slow internal swirl */
+.aio-layer.aio-nebula {
+  inset: -25%;
+  background: conic-gradient(
+    from 0deg at 50% 50%,
+    transparent 0deg,
+    rgba(255, 255, 255, .16) 40deg,
+    transparent 95deg,
+    rgba(190, 190, 200, .1) 170deg,
+    transparent 220deg,
+    rgba(255, 255, 255, .12) 290deg,
+    transparent 340deg
+  );
+  filter: blur(5px);
+  mix-blend-mode: screen;
+  opacity: .8;
+  animation: aio-spin 22s linear infinite;
+}
+
+/* Inner light — drifts organically and leans toward the pointer */
+.aio-core-wrap {
+  transform: translate3d(calc(var(--aio-px) * 9%), calc(var(--aio-py) * 9%), 0);
+}
+
+.aio-core {
+  position: absolute;
+  left: 24%;
+  top: 26%;
+  width: 52%;
+  height: 52%;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at 50% 50%,
+    rgba(255, 255, 255, .82) 0%,
+    rgba(240, 240, 245, .5) 18%,
+    rgba(200, 200, 212, .2) 42%,
+    rgba(160, 160, 175, .05) 60%,
+    transparent 72%
+  );
+  filter: blur(2.5px);
+  mix-blend-mode: screen;
+  animation: aio-core 11s ease-in-out infinite;
+}
+
+/* Secondary light filaments, counter-rotating */
+.aio-layer.aio-wisp {
+  inset: 12%;
+  background:
+    radial-gradient(ellipse 34% 14% at 66% 38%, rgba(255, 255, 255, .4), transparent 70%),
+    radial-gradient(ellipse 22% 10% at 30% 68%, rgba(220, 220, 230, .24), transparent 70%);
+  filter: blur(1.6px);
+  mix-blend-mode: screen;
+  animation: aio-spin 15s linear infinite reverse;
+}
+
+/* Spherical depth falloff */
+.aio-vignette {
+  background: radial-gradient(
+    circle at 42% 38%,
+    transparent 38%,
+    rgba(0, 0, 0, .42) 70%,
+    rgba(0, 0, 0, .78) 100%
+  );
+}
+
+/* Fresnel rim + bottom bounce light */
+.aio-rim {
+  background:
+    radial-gradient(ellipse 62% 26% at 50% 95%, rgba(255, 255, 255, .26), transparent 72%),
+    radial-gradient(
+      circle at 50% 50%,
+      transparent 60%,
+      rgba(255, 255, 255, .05) 74%,
+      rgba(255, 255, 255, .16) 92%,
+      rgba(255, 255, 255, .28) 100%
+    );
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, .09),
+    inset 0 1.5px 1px rgba(255, 255, 255, .22),
+    inset 0 -1px 2px rgba(255, 255, 255, .12);
+}
+
+/* Specular highlight — slides with the pointer like a light source */
+.aio-spec-wrap {
+  transform: translate3d(calc(var(--aio-px) * 7%), calc(var(--aio-py) * 5%), 0);
+}
+
+.aio-spec {
+  position: absolute;
+  left: 17%;
+  top: 8%;
+  width: 44%;
+  height: 26%;
+  border-radius: 50%;
+  background: radial-gradient(
+    ellipse at 50% 35%,
+    rgba(255, 255, 255, .75) 0%,
+    rgba(255, 255, 255, .28) 40%,
+    transparent 72%
+  );
+  transform: rotate(-24deg);
+  filter: blur(.5px);
+  animation: aio-glint 7s ease-in-out infinite;
+}
+
+.aio-glint {
+  position: absolute;
+  left: 29%;
+  top: 15%;
+  width: 9%;
+  height: 7%;
+  border-radius: 50%;
+  background: #fff;
+  opacity: .9;
+  filter: blur(.4px);
+  box-shadow: 0 0 4px rgba(255, 255, 255, .8);
+}
+
+/* Click flare */
+.aio-flare {
+  background: radial-gradient(
+    circle at 50% 50%,
+    rgba(255, 255, 255, .85),
+    rgba(255, 255, 255, .2) 45%,
+    transparent 70%
+  );
+  opacity: 0;
+  mix-blend-mode: screen;
+}
+
+.aio.is-activating .aio-flare { animation: aio-flare .6s ease-out; }
+
+/* ---------- Orbital ring (back half behind sphere, front half over it) ---------- */
+
+.aio-orbit {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: calc(var(--aio-size) * 1.62 + 16px);
+  height: calc(var(--aio-size) * .46 + 16px);
+  transform: translate(-50%, -50%) rotate(-16deg);
+  pointer-events: none;
+}
+
+.aio-orbit--back  { z-index: 1; clip-path: inset(0 0 50% 0); }
+.aio-orbit--front { z-index: 3; clip-path: inset(50% 0 0 0); }
+
+.aio-ring {
+  position: absolute;
+  inset: 8px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, .07);
+}
+
+.aio-orbit--front .aio-ring { border-color: rgba(255, 255, 255, .18); }
+
+.aio-spark {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 0 6px 1px rgba(255, 255, 255, .7);
+  offset-rotate: 0deg;
+  animation: aio-orbit 9s linear infinite;
+}
+
+.aio-orbit--back .aio-spark { opacity: .4; }
+
+@supports not (offset-path: path("M0 0")) {
+  .aio-spark { display: none; }
+}
+
+/* ---------- Floor reflection, click wave, focus ring ---------- */
+
+.aio-pool {
+  position: absolute;
+  left: 18%;
+  right: 18%;
+  bottom: -16%;
+  height: 12%;
+  border-radius: 50%;
+  background: radial-gradient(ellipse at center, rgba(255, 255, 255, .12), transparent 70%);
+  filter: blur(3px);
+  pointer-events: none;
+  animation: aio-pool 7s ease-in-out infinite;
+}
+
+.aio-wave {
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, .55);
+  pointer-events: none;
+  animation: aio-wave .75s cubic-bezier(.22, 1, .36, 1) forwards;
+}
+
+.aio-focus {
+  position: absolute;
+  inset: -7px;
+  z-index: 5;
+  border-radius: 50%;
+  border: 1px dashed rgba(255, 255, 255, .6);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .2s ease;
+}
+
+.aio:focus-visible .aio-focus { opacity: 1; }
+
+/* ---------- Label pill ---------- */
+
+.aio-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 13px 7px 11px;
+  border-radius: 999px;
+  background: rgba(12, 12, 12, .62);
+  border: 1px solid rgba(255, 255, 255, .09);
+  -webkit-backdrop-filter: blur(12px) saturate(140%);
+  backdrop-filter: blur(12px) saturate(140%);
+  font-family: var(--mono, ui-monospace, monospace);
+  font-size: .6rem;
+  font-weight: 500;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: var(--t1, #c4c4c4);
+  opacity: 0;
+  transform: translateX(8px);
+  transition:
+    opacity .45s ease,
+    transform .55s cubic-bezier(.22, 1, .36, 1),
+    color .3s ease,
+    border-color .3s ease;
+}
+
+.aio[data-label="subtle"] .aio-label { opacity: .72; transform: none; }
+.aio[data-label="always"] .aio-label { opacity: 1; transform: none; }
+
+.aio:hover .aio-label,
+.aio:focus-visible .aio-label {
+  opacity: 1;
+  transform: none;
+  color: var(--t0, #fff);
+  border-color: rgba(255, 255, 255, .18);
+}
+
+.aio-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #e5e5e5;
+  box-shadow: 0 0 6px rgba(255, 255, 255, .6);
+  animation: aio-blink 2.8s ease-in-out infinite;
+}
+
+.aio.is-offline .aio-dot {
+  background: transparent;
+  border: 1px solid var(--t3, #8f8f8f);
+  box-shadow: none;
+  animation: none;
+}
+
+/* ---------- Static mini orb (chat header) ---------- */
+
+.aio-mini {
+  --aio-mini-size: 22px;
+  position: relative;
+  display: inline-block;
+  flex-shrink: 0;
+  width: var(--aio-mini-size);
+  height: var(--aio-mini-size);
+  border-radius: 50%;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse 60% 26% at 50% 94%, rgba(255, 255, 255, .22), transparent 72%),
+    radial-gradient(130% 130% at 30% 22%, #3b3b40 0%, #1a1a1d 32%, #0a0a0b 62%, #030303 100%);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .12), 0 0 10px rgba(255, 255, 255, .08);
+}
+
+.aio-mini::before {
+  content: "";
+  position: absolute;
+  left: 22%;
+  top: 26%;
+  width: 56%;
+  height: 56%;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 255, 255, .85), rgba(220, 220, 230, .25) 45%, transparent 70%);
+  filter: blur(1.5px);
+  animation: aio-mini-breathe 4s ease-in-out infinite;
+}
+
+.aio-mini::after {
+  content: "";
+  position: absolute;
+  left: 20%;
+  top: 10%;
+  width: 40%;
+  height: 24%;
+  border-radius: 50%;
+  background: radial-gradient(ellipse at 50% 35%, rgba(255, 255, 255, .7), transparent 72%);
+  transform: rotate(-24deg);
+}
+
+/* ---------- Light theme ---------- */
+
+[data-theme="light"] .aio-halo::before {
+  background: radial-gradient(circle, rgba(0, 0, 0, .1) 0%, rgba(0, 0, 0, .04) 28%, transparent 58%);
+}
+[data-theme="light"] .aio-pool {
+  background: radial-gradient(ellipse at center, rgba(0, 0, 0, .28), transparent 70%);
+}
+[data-theme="light"] .aio-ring { border-color: rgba(0, 0, 0, .1); }
+[data-theme="light"] .aio-orbit--front .aio-ring { border-color: rgba(0, 0, 0, .24); }
+[data-theme="light"] .aio-spark { background: #111; box-shadow: 0 0 5px rgba(0, 0, 0, .35); }
+[data-theme="light"] .aio-label {
+  background: rgba(255, 255, 255, .72);
+  border-color: rgba(0, 0, 0, .1);
+}
+[data-theme="light"] .aio:hover .aio-label,
+[data-theme="light"] .aio:focus-visible .aio-label { border-color: rgba(0, 0, 0, .22); }
+[data-theme="light"] .aio-dot { background: #111; box-shadow: none; }
+[data-theme="light"] .aio-focus { border-color: rgba(0, 0, 0, .6); }
+
+/* ---------- Keyframes ---------- */
+
+@keyframes aio-float {
+  0%, 100% { transform: translate3d(0, 0, 0); }
+  30%      { transform: translate3d(.8px, -4px, 0); }
+  65%      { transform: translate3d(-.8px, -6px, 0); }
+}
+
+@keyframes aio-breathe {
+  0%, 100% { opacity: .6; transform: scale(.94); }
+  50%      { opacity: 1;  transform: scale(1.04); }
+}
+
+@keyframes aio-caustic {
+  0%, 100% { opacity: .75; }
+  50%      { opacity: 1; }
+}
+
+@keyframes aio-spin { to { transform: rotate(360deg); } }
+
+@keyframes aio-core {
+  0%, 100% { transform: translate(0, 0) scale(.9);     opacity: .75; }
+  25%      { transform: translate(6%, -5%) scale(1.02); opacity: .95; }
+  50%      { transform: translate(-3%, 6%) scale(.86);  opacity: .7; }
+  75%      { transform: translate(-6%, -3%) scale(1);   opacity: .9; }
+}
+
+@keyframes aio-glint {
+  0%, 100% { opacity: .85; }
+  50%      { opacity: 1; }
+}
+
+@keyframes aio-orbit {
+  from { offset-distance: 0%; }
+  to   { offset-distance: 100%; }
+}
+
+@keyframes aio-pool {
+  0%, 100% { transform: scale(1);  opacity: .9; }
+  65%      { transform: scale(.8); opacity: .55; }
+}
+
+@keyframes aio-flare {
+  0%   { opacity: 0; }
+  25%  { opacity: .9; }
+  100% { opacity: 0; }
+}
+
+@keyframes aio-wave {
+  from { transform: scale(1);   opacity: .8; }
+  to   { transform: scale(2.4); opacity: 0; }
+}
+
+@keyframes aio-blink {
+  0%, 100% { opacity: 1; }
+  50%      { opacity: .35; }
+}
+
+@keyframes aio-mini-breathe {
+  0%, 100% { opacity: .7; transform: scale(.92); }
+  50%      { opacity: 1;  transform: scale(1.05); }
+}
+
+/* ---------- Back-to-top: stack above the orb ---------- */
+
+#btt {
+  bottom: calc(1.75rem + 62px + 18px) !important;
+  right: calc(1.75rem + 12px) !important;
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 600px) {
+  .aio {
+    --aio-size: calc(var(--aio-size-base) * .87);
+    --aio-edge: 1.25rem;
+  }
+  .aio-label { display: none; }
+
+  #btt {
+    bottom: calc(1.25rem + 54px + 16px) !important;
+    right: calc(1.25rem + 8px) !important;
+  }
+}
+
+/* ---------- Reduced motion ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+  .aio,
+  .aio *,
+  .aio-mini::before {
+    animation: none !important;
+    transition-duration: .01ms !important;
+  }
+  .aio-spark { display: none; }
+  .aio-core  { opacity: .85; transform: scale(.95); }
+}
