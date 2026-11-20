@@ -1,0 +1,15 @@
+.git
+.env
+.env.*
+!.env.example
+.DS_Store
+01-AI-HIREME/.venv
+01-AI-HIREME/__pycache__
+**/__pycache__
+*.pyc
+*.png
+*.jpg
+index.html
+style.css
+script.js
+ai-companion

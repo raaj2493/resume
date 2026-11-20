@@ -1,0 +1,180 @@
+
+{
+  "personal_info": {
+    "name": "Ashutosh Giri",
+    "role": "Full Stack Software Engineer (Backend + AI Focus)",
+    "location": "India"
+  },
+  "education": [
+    {
+      "institution": "Raj Kumar Goel Institute of Technology",
+      "degree": "Bachelor of Technology",
+      "field": "Computer Science and Engineering",
+      "location": "Ghaziabad, Uttar Pradesh",
+      "start_year": 2025,
+      "end_year": 2029,
+      "status": "Pursuing"
+    }
+  ],
+  "skills": {
+    "programming_languages": [
+      "Go",
+      "Dart",
+      "SQL",
+      "JavaScript",
+      "Java",
+      "Python"
+    ],
+    "backend_development": [
+      "Go",
+      "REST APIs",
+      "gRPC",
+      "GraphQL",
+      "WebSockets",
+      "Authentication & Authorization",
+      "JWT",
+      "OAuth 2.0",
+      "Middleware",
+      "API Design",
+      "Background Workers"
+    ],
+    "frontend_mobile": [
+      "Flutter",
+      "Firebase",
+      "Riverpod"
+    ],
+    "databases": [
+      "PostgreSQL",
+      "MongoDB",
+      "Redis",
+      "SQL",
+      "Firebase Firestore",
+      "Firebase Realtime Database"
+    ],
+    "software_engineering": [
+      "Clean Architecture",
+      "Layered Architecture",
+      "Repository Pattern",
+      "SOLID Principles",
+      "Design Patterns",
+      "Domain-Driven Design",
+      "Object-Oriented Programming",
+      "SDLC"
+    ],
+    "system_design": [
+      "Scalability",
+      "Caching",
+      "Load Balancing",
+      "Event-Driven Architecture",
+      "Microservices",
+      "Distributed Systems",
+      "API Gateway",
+      "Message Queues",
+      "CQRS",
+      "Event Sourcing",
+      "High Availability"
+    ],
+    "ai_engineering": [
+      "LLM APIs",
+      "Prompt Engineering",
+      "Function Calling",
+      "Embeddings",
+      "Vector Databases",
+      "Retrieval-Augmented Generation",
+      "AI Agents",
+      "AI Workflow Automation"
+    ],
+    "devops_cloud": [
+      "Docker",
+      "Kubernetes",
+      "AWS",
+      "Linux",
+      "Nginx",
+      "CI/CD",
+      "GitHub Actions",
+      "Monitoring"
+    ],
+    "testing": [
+      "Unit Testing",
+      "Integration Testing",
+      "API Testing",
+      "Performance Testing"
+    ],
+    "developer_tools": [
+      "Git",
+      "GitHub",
+      "Postman",
+      "VS Code",
+      "Android Studio"
+    ]
+  },
+  "projects": [
+    {
+      "name": "KrishiSetu",
+      "description": "A digital agricultural marketplace connecting farmers and buyers.",
+      "technologies": [
+        "Go",
+        "Gin",
+        "GORM",
+        "PostgreSQL",
+        "Docker"
+      ],
+      "features": [
+        "Farmer and buyer accounts",
+        "Product listings",
+        "Offers and orders",
+        "Mandi data integration",
+        "Product matching and forecasting"
+      ],
+      "status": "Completed",
+      "github": "https://github.com/raaj2493/KrishiSetu"
+    },
+    {
+      "name": "Areté",
+      "description": "A local-first productivity application focused on intentional focus sessions and personal accountability.",
+      "technologies": [
+        "Flutter",
+        "Dart",
+        "SQLite"
+      ],
+      "features": [
+        "Focus sessions",
+        "Distraction management",
+        "Local data storage"
+      ],
+      "status": "In Progress"
+    },
+    {
+      "name": "Edith",
+      "description": "A local-first personal knowledge management and second-brain system.",
+      "technologies": [
+        "Python",
+        "SQLite",
+        "FTS5"
+      ],
+      "features": [
+        "Note indexing",
+        "Full-text search",
+        "Knowledge retrieval"
+      ],
+      "status": "In Progress"
+    }
+  ],
+  "experience": [
+    {
+      "company": "Team Infits",
+      "role": "Flutter Developer Intern",
+      "employment_type": "Internship",
+      "start_date": "October 2025",
+      "end_date": "January 2026",
+      "status": "Completed"
+    }
+  ],
+  "achievements": [],
+  "certifications": [],
+  "links": {
+    "portfolio": "https://ashutoshgiri.vercel.app/",
+    "github": "https://github.com/raaj2493",
+    "linkedin": "https://www.linkedin.com/in/rajgiri2493/"
+  }
+}

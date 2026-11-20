@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: ashutosh-ai-companion-backend
+    runtime: docker
+    plan: free
+    dockerfilePath: ./Dockerfile
+    healthCheckPath: /api/v1/health
+    envVars:
+      - key: GROQ_API_KEY
+        sync: false
+      - key: PYTHON_ENGINE_URL
+        value: http://127.0.0.1:8001
+      - key: ALLOWED_ORIGINS
+        value: https://ashutoshgiri.vercel.app,http://localhost:3000,http://127.0.0.1:5500
+      - key: REQUEST_TIMEOUT_SECONDS
+        value: "60"
+      - key: MAX_BODY_BYTES
+        value: "65536"

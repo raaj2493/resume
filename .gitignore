@@ -1,0 +1,18 @@
+# Environment & secrets
+.env
+.env.*
+!.env.example
+
+# Python
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Go
+backend/bin/
+backend/server
+
+# OS
+.DS_Store
